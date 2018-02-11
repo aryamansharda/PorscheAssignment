@@ -9,9 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface CreateCustomRouteViewController : UIViewController <MKLocalSearchCompleterDelegate, UISearchBarDelegate>
+@import Mapbox;
+@import MapboxNavigation;
+@import MapboxDirections;
+@import MapboxCoreNavigation;
+
+@interface CreateCustomRouteViewController : UIViewController <MKLocalSearchCompleterDelegate, UISearchBarDelegate, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-
+@property (weak, nonatomic) IBOutlet UILabel *numberOfDestinationsLabel;
 @end

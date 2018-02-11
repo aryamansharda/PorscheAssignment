@@ -36,7 +36,39 @@
 #pragma mark - Button Actions
 - (IBAction)onTopLeftButtonClicked:(UIButton *)sender {
     [self showMenuFromButton:sender withDirection:LSFloatingActionMenuDirectionUp];
-    [self showParkingGarages];
+    
+//    if (self.destinationWaypoint != nil) {
+//        NSLog(@"Trying to load route.: %f to %f", self.mapView.userLocation.coordinate.latitude, self.destinationWaypoint.coordinate.latitude);
+//        [self calculateRoutefromOrigin:self.mapView.userLocation.coordinate
+//                         toDestination:self.destinationWaypoint.coordinate
+//                            completion:^(MBRoute * _Nullable route, NSError * _Nullable error) {
+//                                if (error != nil) {
+//                                    NSLog(@"Error calculating route: %@", error);
+//                                }
+//
+//                                NSLog(@"Completed this call.");
+//                            }];
+//    }
+    
+    if (self.directionsRouteOptions != nil) {
+        (void)[[MBDirections sharedDirections] calculateDirectionsWithOptions:self.directionsRouteOptions completionHandler:^(
+                                                                                                          NSArray<MBWaypoint *> *waypoints,
+                                                                                                          NSArray<MBRoute *> *routes,
+                                                                                                          NSError *error) {
+            
+            if (!routes.firstObject) {
+                return;
+            }
+            
+            MBRoute *route = routes.firstObject;
+            self.directionsRoute = route;
+            CLLocationCoordinate2D *routeCoordinates = malloc(route.coordinateCount * sizeof(CLLocationCoordinate2D));
+            [route getCoordinates:routeCoordinates];
+            
+            // Draw the route on the map after creating it
+            [self drawRoute:routeCoordinates];
+        }];
+    }
 }
 
 - (void)showMenuFromButton:(UIButton *)button withDirection:(LSFloatingActionMenuDirection)direction {
@@ -99,12 +131,6 @@
     // Add a gesture recognizer to the map view
     UILongPressGestureRecognizer *setDestination = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(didLongPress:)];
     [self.mapView addGestureRecognizer:setDestination];
-    
-    // Initialize and add the point annotation.
-//    MGLPointAnnotation *pisa = [[MGLPointAnnotation alloc] init];
-//    pisa.coordinate = CLLocationCoordinate2DMake(43.723, 10.396633);
-//    pisa.title = @"Leaning Tower of Pisa";
-//    [self.mapView addAnnotation:pisa];
 }
 
 -(void)loadParkingGarages {
@@ -122,8 +148,6 @@
                 parkingGarage.longitude = [object objectForKey:@"Longitude"];
                 [parkingGaragesList addObject:parkingGarage];
             }
-            
-            NSLog(@"Parking Garages: %@", [parkingGaragesList description]);
         } else {
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }

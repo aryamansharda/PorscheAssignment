@@ -18,6 +18,10 @@
 
 @property (nonatomic) IBOutlet UIView *mapViewContainer;
 @property (nonatomic) MBNavigationMapView *mapView;
+
+//TODO: Make this use a route option
+@property (nonatomic) MBWaypoint *destinationWaypoint;
 @property (nonatomic) MBRoute *directionsRoute;
+@property (nonatomic) MBRouteOptions *directionsRouteOptions;
 
 @end

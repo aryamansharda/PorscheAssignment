@@ -12,6 +12,7 @@
 
 @property (nonatomic, retain) IBOutlet UILabel *driveName;
 @property (nonatomic, retain) IBOutlet UILabel *driveLengthHours;
+@property (nonatomic, retain) IBOutlet UILabel *driveLengthMiles;
 @property (nonatomic, retain) IBOutlet UILabel *driveGasCost;
 @property (nonatomic, retain) IBOutlet UILabel *driveRating;
 @property (nonatomic, retain) IBOutlet UIImageView *coverPhoto;

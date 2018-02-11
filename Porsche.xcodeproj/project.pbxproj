@@ -38,6 +38,8 @@
 		933BBA47203034C600613E57 /* HySpinerLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 933BBA41203034C500613E57 /* HySpinerLayer.m */; };
 		933BBA48203034C600613E57 /* HyTransitions.m in Sources */ = {isa = PBXBuildFile; fileRef = 933BBA44203034C600613E57 /* HyTransitions.m */; };
 		933BBA49203034C600613E57 /* HyLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 933BBA46203034C600613E57 /* HyLoginButton.m */; };
+		933BBA4D2030BB0C00613E57 /* WaypointsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 933BBA4C2030BB0C00613E57 /* WaypointsTableViewCell.m */; };
+		933BBA502030BC8400613E57 /* Waypoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 933BBA4F2030BC8400613E57 /* Waypoint.m */; };
 		93750DA6202E7D06007A9BCB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93750DA5202E7D06007A9BCB /* AppDelegate.m */; };
 		93750DAC202E7D07007A9BCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93750DAA202E7D07007A9BCB /* Main.storyboard */; };
 		93750DAE202E7D07007A9BCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93750DAD202E7D07007A9BCB /* Assets.xcassets */; };
@@ -93,6 +95,10 @@
 		933BBA44203034C600613E57 /* HyTransitions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyTransitions.m; sourceTree = "<group>"; };
 		933BBA45203034C600613E57 /* HySpinerLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HySpinerLayer.h; sourceTree = "<group>"; };
 		933BBA46203034C600613E57 /* HyLoginButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyLoginButton.m; sourceTree = "<group>"; };
+		933BBA4B2030BB0C00613E57 /* WaypointsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WaypointsTableViewCell.h; sourceTree = "<group>"; };
+		933BBA4C2030BB0C00613E57 /* WaypointsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WaypointsTableViewCell.m; sourceTree = "<group>"; };
+		933BBA4E2030BC8400613E57 /* Waypoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Waypoint.h; sourceTree = "<group>"; };
+		933BBA4F2030BC8400613E57 /* Waypoint.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Waypoint.m; sourceTree = "<group>"; };
 		93750DA1202E7D06007A9BCB /* Porsche.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Porsche.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93750DA4202E7D06007A9BCB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		93750DA5202E7D06007A9BCB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -152,6 +158,8 @@
 				933BB9C0202E8E8900613E57 /* ScenicDrives.m */,
 				933BBA03202FD09300613E57 /* ParkingGarages.h */,
 				933BBA04202FD09300613E57 /* ParkingGarages.m */,
+				933BBA4E2030BC8400613E57 /* Waypoint.h */,
+				933BBA4F2030BC8400613E57 /* Waypoint.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -161,6 +169,8 @@
 			children = (
 				933BB9C6202ECE5600613E57 /* ScenicDrivesTableViewCell.h */,
 				933BB9C7202ECE5600613E57 /* ScenicDrivesTableViewCell.m */,
+				933BBA4B2030BB0C00613E57 /* WaypointsTableViewCell.h */,
+				933BBA4C2030BB0C00613E57 /* WaypointsTableViewCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -482,6 +492,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				933BBA502030BC8400613E57 /* Waypoint.m in Sources */,
 				93750DB4202E7D07007A9BCB /* main.m in Sources */,
 				933BBA48203034C600613E57 /* HyTransitions.m in Sources */,
 				93750DA6202E7D06007A9BCB /* AppDelegate.m in Sources */,
@@ -492,6 +503,7 @@
 				933BB9F9202F6ED100613E57 /* GoogleMapsDirectionEngine.m in Sources */,
 				933BB9C4202EC65400613E57 /* ScenicDrivesViewController.m in Sources */,
 				933BB9C8202ECE5600613E57 /* ScenicDrivesTableViewCell.m in Sources */,
+				933BBA4D2030BB0C00613E57 /* WaypointsTableViewCell.m in Sources */,
 				93750DBC202E7D4D007A9BCB /* SplashScreenViewController.m in Sources */,
 				933BBA47203034C600613E57 /* HySpinerLayer.m in Sources */,
 				933BB9C1202E8E8900613E57 /* ScenicDrives.m in Sources */,

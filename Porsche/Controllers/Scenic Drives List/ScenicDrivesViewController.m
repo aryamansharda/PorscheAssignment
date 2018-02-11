@@ -9,6 +9,7 @@
 #import "ScenicDrivesViewController.h"
 #import "ScenicDrives.h"
 #import "ScenicDrivesTableViewCell.h"
+#import "MainMapViewController.h"
 #import <Parse/Parse.h>
 
 @interface ScenicDrivesViewController ()
@@ -29,7 +30,7 @@
     self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.translucent = NO;
-    self.navigationController.navigationItem.title = @"PORSCHE2";
+    self.navigationController.navigationItem.title = @"PORSCHE";
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor whiteColor],
        NSFontAttributeName:[UIFont fontWithName:@"Lato-Regular" size:21]}];
@@ -130,6 +131,10 @@
     return 188;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"openMapViewSegue" sender:self];
+}
+
 #pragma mark - Navigation Bar Settings
 - (BOOL)prefersStatusBarHidden {
     return NO;
@@ -139,4 +144,12 @@
     return UIStatusBarStyleLightContent;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"openMapViewSegue"]) {
+        
+        MainMapViewController *vc = [segue destinationViewController];
+        MBWaypoint *destinationWaypoint = [[MBWaypoint alloc] initWithCoordinate:CLLocationCoordinate2DMake(38.9131752, -77.0324047) coordinateAccuracy:-1 name:@"Mapbox"];
+        [vc setDestinationWaypoint:destinationWaypoint];
+    }
+}
 @end
