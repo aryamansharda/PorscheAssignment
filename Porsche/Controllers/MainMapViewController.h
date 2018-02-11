@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Porsche-Bridging-Header.h"
 
-@interface MainMapViewController : UIViewController
+@import Mapbox;
+@import MapboxNavigation;
+@import MapboxDirections;
+@import MapboxCoreNavigation;
+
+@interface MainMapViewController : UIViewController <MGLMapViewDelegate>
+
+@property (nonatomic) IBOutlet UIView *mapViewContainer;
+@property (nonatomic) MBNavigationMapView *mapView;
+@property (nonatomic) MBRoute *directionsRoute;
 
 @end

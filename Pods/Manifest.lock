@@ -1,0 +1,69 @@
+PODS:
+  - AWSCore (2.6.12)
+  - AWSPolly (2.6.12):
+    - AWSCore (= 2.6.12)
+  - Bolts/Tasks (1.9.0)
+  - CBStoreHouseRefreshControl (1.0)
+  - LSFloatingActionMenu (1.0.0)
+  - Mapbox-iOS-SDK (3.7.3)
+  - MapboxCoreNavigation (0.8.3):
+    - MapboxDirections.swift (~> 0.10.5)
+    - MapboxMobileEvents (~> 0.2)
+    - OSRMTextInstructions (~> 0.3)
+    - Turf (~> 0.0.3)
+  - MapboxDirections.swift (0.10.6):
+    - Polyline (= 4.1.1)
+  - MapboxMobileEvents (0.3.0)
+  - MapboxNavigation (0.8.3):
+    - AWSPolly (~> 2.6)
+    - Mapbox-iOS-SDK (~> 3.6)
+    - MapboxCoreNavigation (= 0.8.3)
+    - Pulley (= 1.4)
+    - SDWebImage (~> 4.1)
+    - Solar (= 2.0.0)
+    - Turf (~> 0.0.3)
+  - OSRMTextInstructions (0.5.0):
+    - MapboxDirections.swift (~> 0.10)
+  - Parse (1.16.0):
+    - Parse/Core (= 1.16.0)
+  - Parse/Core (1.16.0):
+    - Bolts/Tasks (~> 1.9)
+  - Polyline (4.1.1)
+  - Pulley (1.4)
+  - SDWebImage (4.3.0):
+    - SDWebImage/Core (= 4.3.0)
+  - SDWebImage/Core (4.3.0)
+  - Solar (2.0.0)
+  - TransitionButton (0.3.0)
+  - Turf (0.0.4)
+
+DEPENDENCIES:
+  - CBStoreHouseRefreshControl
+  - LSFloatingActionMenu (~> 1.0.0)
+  - MapboxNavigation
+  - Parse
+  - TransitionButton
+
+SPEC CHECKSUMS:
+  AWSCore: d0d6e4f6831754aaf98058d2306a016ae71510fe
+  AWSPolly: acfa17a93ed9c3350e27204126359de5fb51aac5
+  Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  CBStoreHouseRefreshControl: a814bd725e74ff4c1e8dd96eb02358199b0da04f
+  LSFloatingActionMenu: dc2d6449e817cb2eb3c3a9a751bd49c3aae416b2
+  Mapbox-iOS-SDK: 5304bd9605babe6da9050ea4cb23c1671420b737
+  MapboxCoreNavigation: e3a02e78de886e82236e569006469cbd24fd419c
+  MapboxDirections.swift: fbe95bd11c66339c1ef8b96301464f326394ac0d
+  MapboxMobileEvents: 246843e366f6687f697098673ef78a858c0d8619
+  MapboxNavigation: d7980154b489ae793f7b3e6c328b12f3210d9a53
+  OSRMTextInstructions: 7bbe5a1ba548991d2a7ffba38262845e7a024390
+  Parse: 5b36dc2c2f0a2fd82a257ae018bc3d68cf2c24e7
+  Polyline: 381d1e699fd12508f97cfc468478dfbab67edf1f
+  Pulley: 3d47a5ca819b8f35a63e9a4811d35035d484d1d9
+  SDWebImage: 6da6c8bca115addc4de8613362e1b15f66333825
+  Solar: ea092f7660c1b58d2b754227decb61a1c6710826
+  TransitionButton: 0bf7e5ffe80030f9d10d57983a04acf2f511998a
+  Turf: 6c169618fa671e3f8a7b764b5b3332053ad6110e
+
+PODFILE CHECKSUM: 7146c1ec2b43036f9e9176dc66cafb06d533f113
+
+COCOAPODS: 1.4.0

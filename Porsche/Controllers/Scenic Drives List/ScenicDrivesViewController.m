@@ -21,12 +21,36 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    [self configureThirdPartyFramework];
+    
+    //Configure Navigation View
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationItem.title = @"PORSCHE2";
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor whiteColor],
+       NSFontAttributeName:[UIFont fontWithName:@"Lato-Regular" size:21]}];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [self setNeedsStatusBarAppearanceUpdate];
     
     //Delegate Setup
     self.tableView.delegate = self;
-
+    
     //[self saveImage];
     [self loadScenicDrives];
+}
+
+- (void)configureThirdPartyFramework {
+    //Configuring 3rd Party Frameworks
+    [Parse initializeWithConfiguration: [ParseClientConfiguration configurationWithBlock: ^ (id < ParseMutableClientConfiguration > _Nonnull configuration) {
+        configuration.applicationId = @"PorscheScenicDriveParseAppID";
+        configuration.clientKey = @"PorscheScenicDriveParseMasterKey";
+        configuration.server = @"https://porsche-scenic-drive.herokuapp.com/parse";
+        configuration.localDatastoreEnabled = NO;
+    }]];
 }
 
 - (void)loadScenicDrives {
@@ -106,14 +130,13 @@
     return 188;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - Navigation Bar Settings
+- (BOOL)prefersStatusBarHidden {
+    return NO;
 }
-*/
+
+-(UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
 
 @end

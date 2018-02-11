@@ -1,0 +1,6 @@
+framework module LSFloatingActionMenu {
+  umbrella header "LSFloatingActionMenu-umbrella.h"
+
+  export *
+  module * { export * }
+}

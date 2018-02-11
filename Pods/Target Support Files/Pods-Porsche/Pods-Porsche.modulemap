@@ -1,0 +1,6 @@
+framework module Pods_Porsche {
+  umbrella header "Pods-Porsche-umbrella.h"
+
+  export *
+  module * { export * }
+}

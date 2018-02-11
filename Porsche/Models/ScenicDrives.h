@@ -7,7 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
 
 @interface ScenicDrives : NSObject
+
+@property (nonatomic, retain) NSString *driveName;
+@property (nonatomic, retain) NSString *driveLengthHours;
+@property (nonatomic, retain) NSString *driveGasCost;
+@property (nonatomic, retain) NSString *driveRating;
+
+//TODO: Consolidate this
+@property (nonatomic, retain) PFFile *coverPhotoReference;
+@property (nonatomic, retain) UIImage *coverPhotoImage;
 
 @end

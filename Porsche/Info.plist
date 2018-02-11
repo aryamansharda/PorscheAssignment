@@ -20,6 +20,69 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MGLMapboxAccessToken</key>
+	<string>pk.eyJ1IjoiYXJ5YW1hbnNoYXJkYSIsImEiOiJjamRoczRzZWIwZXhpMndvMnYwdXh6MWRwIn0.yEbVWEOzuv10kqGmXX0l_g</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Used to help you navigate along your road trip!</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string></string>
+		<string>Lato-Black.ttf
+Lato-BlackItalic.ttf
+Lato-Bold.ttf
+Lato-BoldItalic.ttf
+Lato-Hairline.ttf
+Lato-HairlineItalic.ttf
+Lato-Heavy.ttf
+Lato-HeavyItalic.ttf
+Lato-Italic.ttf
+Lato-Light.ttf
+Lato-LightItalic.ttf
+Lato-Medium.ttf
+Lato-MediumItalic.ttf
+Lato-Regular.ttf
+Lato-Semibold.ttf
+Lato-SemiboldItalic.ttf
+Lato-Thin.ttf
+Lato-ThinItalic.ttf</string>
+		<string>Lato-BlackItalic.ttf</string>
+		<string>Lato-Bold.ttf
+Lato-BoldItalic.ttf
+Lato-Hairline.ttf
+Lato-HairlineItalic.ttf
+Lato-Heavy.ttf
+Lato-HeavyItalic.ttf
+Lato-Italic.ttf
+Lato-Light.ttf
+Lato-LightItalic.ttf
+Lato-Medium.ttf
+Lato-MediumItalic.ttf
+Lato-Regular.ttf
+Lato-Semibold.ttf
+Lato-SemiboldItalic.ttf
+Lato-Thin.ttf
+Lato-ThinItalic.ttf</string>
+		<string>Lato-HairlineItalic.ttf</string>
+		<string>Lato-Heavy.ttf</string>
+		<string>Lato-HeavyItalic.ttf</string>
+		<string>Lato-MediumItalic.ttf</string>
+		<string>Lato-Italic.ttf</string>
+		<string>Lato-SemiboldItalic.ttf</string>
+		<string>Lato-ThinItalic.ttf</string>
+		<string>Lato-Regular.ttf</string>
+		<string>Lato-Semibold.ttf</string>
+		<string>Lato-SemiboldItalic.ttf</string>
+		<string>Lato-Light.ttf</string>
+		<string>Lato-LightItalic.ttf</string>
+		<string>Lato-Medium.ttf</string>
+		<string>Lato-Hairline.ttf</string>
+		<string>Lato-BoldItalic.ttf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -28,18 +91,21 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
+		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>View controller-based status bar appearance equal</key>
+	<false/>
 </dict>
 </plist>

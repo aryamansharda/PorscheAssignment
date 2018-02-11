@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Porsche-Bridging-Header.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
