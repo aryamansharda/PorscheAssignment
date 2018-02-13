@@ -41,6 +41,7 @@
 		933BBA4D2030BB0C00613E57 /* WaypointsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 933BBA4C2030BB0C00613E57 /* WaypointsTableViewCell.m */; };
 		933BBA502030BC8400613E57 /* Waypoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 933BBA4F2030BC8400613E57 /* Waypoint.m */; };
 		933BBA53203119EA00613E57 /* DriveExperienceBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 933BBA52203119EA00613E57 /* DriveExperienceBaseViewController.m */; };
+		933BBA5A2032A5E400613E57 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 933BBA592032A5E400613E57 /* libsqlite3.tbd */; };
 		93750DA6202E7D06007A9BCB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93750DA5202E7D06007A9BCB /* AppDelegate.m */; };
 		93750DAC202E7D07007A9BCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93750DAA202E7D07007A9BCB /* Main.storyboard */; };
 		93750DAE202E7D07007A9BCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93750DAD202E7D07007A9BCB /* Assets.xcassets */; };
@@ -102,6 +103,7 @@
 		933BBA4F2030BC8400613E57 /* Waypoint.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Waypoint.m; sourceTree = "<group>"; };
 		933BBA51203119EA00613E57 /* DriveExperienceBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DriveExperienceBaseViewController.h; sourceTree = "<group>"; };
 		933BBA52203119EA00613E57 /* DriveExperienceBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DriveExperienceBaseViewController.m; sourceTree = "<group>"; };
+		933BBA592032A5E400613E57 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		93750DA1202E7D06007A9BCB /* Porsche.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Porsche.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93750DA4202E7D06007A9BCB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		93750DA5202E7D06007A9BCB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				933BBA5A2032A5E400613E57 /* libsqlite3.tbd in Frameworks */,
 				F9EADDDC5CBC0CAA3EC1CEF2 /* Pods_Porsche.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -130,6 +133,7 @@
 		63617B1DA5297D2017833E57 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				933BBA592032A5E400613E57 /* libsqlite3.tbd */,
 				8DC0228AC14E461E223753A2 /* Pods_Porsche.framework */,
 			);
 			name = Frameworks;

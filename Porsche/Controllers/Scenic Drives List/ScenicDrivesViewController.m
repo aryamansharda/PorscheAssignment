@@ -30,8 +30,6 @@
     self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.translucent = NO;
-//    self.navigationController.navigationItem.title = @"PORSCHE";
-    
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"PorscheName"]];
     
     [self.navigationController.navigationBar setTitleTextAttributes:

@@ -12,6 +12,7 @@
 
 @property (nonatomic, retain) IBOutlet UILabel *fromOrToLabel;
 @property (nonatomic, retain) IBOutlet UILabel *addressLabel;
+@property (nonatomic, retain) IBOutlet UILabel *addressDetailLabel;
 @property (nonatomic, retain) IBOutlet UIImageView *icon;
 
 @end

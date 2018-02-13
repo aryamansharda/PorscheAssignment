@@ -38,7 +38,7 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
+}   
 
 #pragma mark - User Action Methods
 - (IBAction)startNavigationTapped:(id)sender {
@@ -77,6 +77,7 @@
         }
         
         Waypoint *waypoint = [self.waypointsList objectAtIndex:indexPath.row];
+        cell.addressDetailLabel.text = waypoint.addressDetail;
         cell.addressLabel.text = waypoint.addressTitle;
         cell.addressLabel.layer.cornerRadius = 5.0;
         cell.addressLabel.clipsToBounds = YES;
@@ -97,7 +98,7 @@
         waypoint.addressDetail = [[item placemark] title];
         waypoint.coordinate =  [[item placemark] coordinate];
         [self.waypointsList addObject:waypoint];
-        [self.tableView reloadData];
+        [self.searchDisplayController.searchResultsTableView reloadData];[self.tableView reloadData];
         
         [self.searchDisplayController setActive:NO animated:YES];
         [self.numberOfDestinationsLabel setText:[NSString stringWithFormat:@"%ld STOPS", [self.waypointsList count]]];
@@ -121,7 +122,7 @@
         }
     
         self.localSearchResults = response;
-        [self.tableView reloadData];
+        [self.searchDisplayController.searchResultsTableView reloadData];
     }];
 }
 

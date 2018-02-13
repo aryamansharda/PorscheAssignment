@@ -95,7 +95,8 @@
     self.navigationViewController.navigationDelegate = self;
     
     if (self.montageSegmentedControl.currentState == 0) {
-        self.cameraControlTimer = [NSTimer scheduledTimerWithTimeInterval:120.0f target:self selector:@selector(cameraTimeLapseControl) userInfo:nil repeats:YES];
+        //TODO: Replace 5 seconds with a better time interval
+        self.cameraControlTimer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(cameraTimeLapseControl) userInfo:nil repeats:YES];
         NSLog(@"Enabling montage functionality.");
     }
     

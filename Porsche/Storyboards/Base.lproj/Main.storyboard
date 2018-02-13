@@ -43,7 +43,7 @@
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7PC-4j-iHU">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PorscheLogo" translatesAutoresizingMaskIntoConstraints="NO" id="CaG-GM-ojn">
                                 <rect key="frame" x="20" y="96" width="335" height="179"/>
@@ -244,13 +244,17 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8 HOURS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avc-uo-oV6">
-                                <rect key="frame" x="152" y="278" width="70" height="19"/>
+                                <rect key="frame" x="38" y="278" width="298" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="298" id="IaD-h6-dps"/>
+                                    <constraint firstAttribute="height" constant="19" id="mWv-DA-0xA"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRIP OVERVIEW" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAs-SW-fYr">
-                                <rect key="frame" x="108" y="76" width="158" height="31"/>
+                                <rect key="frame" x="106" y="76" width="162.5" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="qs8-DQ-bNy"/>
                                 </constraints>
@@ -296,7 +300,7 @@
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SIMULATION" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUm-BS-POj">
-                                <rect key="frame" x="34" y="433" width="101" height="20"/>
+                                <rect key="frame" x="34" y="433" width="105" height="20"/>
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -324,7 +328,7 @@
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIMELAPSE " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUx-64-tSx">
-                                <rect key="frame" x="38" y="331" width="97" height="20"/>
+                                <rect key="frame" x="38" y="331" width="95.5" height="20"/>
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -353,10 +357,10 @@
                             <constraint firstItem="FUm-BS-POj" firstAttribute="top" secondItem="Lkl-GX-jki" secondAttribute="bottom" constant="24" id="cJv-u6-gpz"/>
                             <constraint firstItem="Lkl-GX-jki" firstAttribute="top" secondItem="GUx-64-tSx" secondAttribute="bottom" constant="8" id="cVc-ZH-vc9"/>
                             <constraint firstItem="jAs-SW-fYr" firstAttribute="centerX" secondItem="QtE-nj-VwD" secondAttribute="centerX" id="e4A-aZ-Mfv"/>
-                            <constraint firstItem="SS4-lC-hZE" firstAttribute="trailing" secondItem="FUm-BS-POj" secondAttribute="trailing" priority="250" constant="240" id="fDi-pW-j9O"/>
+                            <constraint firstItem="SS4-lC-hZE" firstAttribute="trailing" secondItem="FUm-BS-POj" secondAttribute="trailing" priority="250" constant="236" id="fDi-pW-j9O"/>
                             <constraint firstItem="GUx-64-tSx" firstAttribute="top" secondItem="avc-uo-oV6" secondAttribute="bottom" constant="34" id="qFu-Om-Z1S"/>
                             <constraint firstItem="voj-hq-73e" firstAttribute="width" secondItem="Lkl-GX-jki" secondAttribute="width" id="qH4-gY-LhK"/>
-                            <constraint firstItem="SS4-lC-hZE" firstAttribute="trailing" secondItem="GUx-64-tSx" secondAttribute="trailing" priority="250" constant="240" id="r4x-CG-fcp"/>
+                            <constraint firstItem="SS4-lC-hZE" firstAttribute="trailing" secondItem="GUx-64-tSx" secondAttribute="trailing" priority="250" constant="241.5" id="r4x-CG-fcp"/>
                             <constraint firstItem="Gqt-GE-VLf" firstAttribute="centerX" secondItem="jAs-SW-fYr" secondAttribute="centerX" id="s87-2Y-Rrs"/>
                             <constraint firstItem="Gqt-GE-VLf" firstAttribute="top" secondItem="voj-hq-73e" secondAttribute="bottom" constant="38" id="utg-M6-1z4"/>
                         </constraints>
@@ -433,6 +437,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
+                                            <outlet property="addressDetailLabel" destination="XnM-YL-fi3" id="QLj-2W-fNj"/>
                                             <outlet property="addressLabel" destination="LVj-Z3-rCp" id="QCf-3l-nGB"/>
                                             <outlet property="fromOrToLabel" destination="CBi-C3-17L" id="GFx-3P-zfd"/>
                                             <outlet property="icon" destination="Lt9-rl-aWe" id="eHB-v9-JKO"/>
@@ -553,6 +558,6 @@
         <image name="blueButtonStandard" width="1380" height="180"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Pot-fx-eVG"/>
+        <segue reference="xex-OW-rgj"/>
     </inferredMetricsTieBreakers>
 </document>

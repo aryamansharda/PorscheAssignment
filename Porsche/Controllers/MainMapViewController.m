@@ -50,7 +50,7 @@
 - (void)showMenuFromButton:(UIButton *)button withDirection:(LSFloatingActionMenuDirection)direction {
     button.hidden = YES;
     
-    NSArray *menuIcons = @[@"PlusIcon", @"POIIcon", @"ParkingIcon"];
+    NSArray *menuIcons = @[@"PlusIcon", @"ParkingIcon"];
     NSMutableArray *menus = [NSMutableArray array];
     
     CGSize itemSize = button.frame.size;
@@ -99,8 +99,6 @@
     [self.mapView setUserTrackingMode:MGLUserTrackingModeFollow animated:YES];
     [self.mapViewContainer addSubview:self.mapView];
     
-    //self.navigationViewController.routeController.locationManager = [MBSimulatedLocationManager alloc] initWithRoute:<#(MBRoute * _Nonnull)#>];
-    
     // Add a gesture recognizer to the map view
     UILongPressGestureRecognizer *setDestination = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(didLongPress:)];
     [self.mapView addGestureRecognizer:setDestination];
@@ -126,7 +124,7 @@
         NSLog(@"My location: %f", self.mapView.userLocation.coordinate.latitude);
         NSLog(@"Waypoints: %@", [self.allRouteWaypoints description]);
         
-        MBRouteOptions *directionsRouteOptions = [[MBRouteOptions alloc] initWithWaypoints:self.allRouteWaypoints profileIdentifier:MBDirectionsProfileIdentifierAutomobileAvoidingTraffic];
+        MBRouteOptions *directionsRouteOptions = [[MBRouteOptions alloc] initWithWaypoints:self.allRouteWaypoints profileIdentifier:MBDirectionsProfileIdentifierAutomobile];
         directionsRouteOptions.includesSteps = YES;
         
         (void)[[MBDirections sharedDirections] calculateDirectionsWithOptions:directionsRouteOptions completionHandler:^(
@@ -280,9 +278,20 @@
     return true;
 }
 
+-(void)mapView:(MGLMapView *)mapView didSelectAnnotation:(id<MGLAnnotation>)annotation {
+    // Calculate the route from the user's location to the set destination
+    [self calculateRoutefromOrigin:self.mapView.userLocation.coordinate
+                     toDestination:annotation.coordinate
+                        completion:^(MBRoute * _Nullable route, NSError * _Nullable error) {
+                            if (error != nil) {
+                                NSLog(@"Error calculating route: %@", error);
+                            }
+                        }];
+}
+
 // Present the navigation view controller when the callout is selected
 -(void)mapView:(MGLMapView *)mapView tapOnCalloutForAnnotation:(id<MGLAnnotation>)annotation {
-    [self performSegueWithIdentifier:@"showDriveBaseViewController" sender:self];
+   [self performSegueWithIdentifier:@"showDriveBaseViewController" sender:self];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
