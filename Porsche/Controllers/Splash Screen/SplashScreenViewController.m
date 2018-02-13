@@ -11,7 +11,7 @@
 #import "HyTransitions.h"
 #import <Parse/Parse.h>
 
-@interface SplashScreenViewController ()
+@interface SplashScreenViewController () 
 
 @end
 
@@ -24,19 +24,24 @@
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Driving" ofType:@"gif"];
     NSData *gif = [NSData dataWithContentsOfFile:filePath];
     
+    [self.view setBackgroundColor:[UIColor blackColor]];
     [self.videoBackgroundView loadData:gif MIMEType:@"image/gif" textEncodingName:nil baseURL:nil];
     [self.videoBackgroundView setUserInteractionEnabled:NO];
-    [self.videoBackgroundView setScalesPageToFit:YES];
-    [self.videoBackgroundView setContentMode:UIViewContentModeScaleAspectFill];
+    //[self.videoBackgroundView setScalesPageToFit:YES];
+    [self.videoBackgroundView setContentMode:UIViewContentModeScaleAspectFit];
+    [self.videoBackgroundView setFrame:[UIScreen mainScreen].bounds];
     
-    UIView *filter = [[UIView alloc] initWithFrame:self.videoBackgroundView.frame];
+    UIView *filter = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     filter.backgroundColor = [UIColor blackColor];
     filter.alpha = 0.2;
     [self.videoBackgroundView addSubview:filter];
     
+    [self.view setBackgroundColor:[UIColor blackColor]];
+    [self.videoBackgroundView setBackgroundColor:[UIColor blackColor]];
+    
     //Configure Login Button
-    HyLoginButton *loginButton = [[HyLoginButton alloc] initWithFrame:CGRectMake(20, CGRectGetHeight(self.view.bounds) - (40 + 80), [UIScreen mainScreen].bounds.size.width - 40, 40)];
-    [loginButton setBackgroundColor:[UIColor colorWithRed:1 green:0.f/255.0f blue:128.0f/255.0f alpha:1]];
+    HyLoginButton *loginButton = [[HyLoginButton alloc] initWithFrame:CGRectMake(20, CGRectGetHeight(self.view.bounds) - (40 + 80), [UIScreen mainScreen].bounds.size.width - 40, 50)];
+    [loginButton setBackgroundColor:[UIColor colorWithRed:42.0f/255.0f green:43.f/255.0f blue:53.0f/255.0f alpha:1]];
     [loginButton setTitle:@"GET STARTED" forState:UIControlStateNormal];
     [loginButton.titleLabel setFont:[UIFont fontWithName:@"Lato-Bold" size:15.0]];
     [loginButton addTarget:self action:@selector(loginButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
@@ -49,7 +54,7 @@
 
 - (void)loginButtonTapped:(id)sender {
     typeof(self) __weak weak = self;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5)), dispatch_get_main_queue(), ^{
         [(HyLoginButton *)sender succeedAnimationWithCompletion:^{
             [weak didPresentControllerButtonTouch];
         }];

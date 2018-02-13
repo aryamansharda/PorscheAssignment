@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Porsche-Bridging-Header.h"
+#import "PBJVision.h"
 
 @import Mapbox;
 @import MapboxNavigation;
@@ -22,6 +23,5 @@
 //TODO: Make this use a route option
 @property (nonatomic) MBWaypoint *destinationWaypoint;
 @property (nonatomic) MBRoute *directionsRoute;
-@property (nonatomic) MBRouteOptions *directionsRouteOptions;
-
+@property (nonatomic) NSMutableArray *allRouteWaypoints; 
 @end

@@ -30,7 +30,10 @@
     self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.translucent = NO;
-    self.navigationController.navigationItem.title = @"PORSCHE";
+//    self.navigationController.navigationItem.title = @"PORSCHE";
+    
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"PorscheName"]];
+    
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor whiteColor],
        NSFontAttributeName:[UIFont fontWithName:@"Lato-Regular" size:21]}];
@@ -68,7 +71,10 @@
                 scenicDriveObject.driveRating = [object objectForKey:@"driveRating"];
                 scenicDriveObject.driveGasCost = [object objectForKey:@"driveGasCost"];
                 scenicDriveObject.driveLengthHours = [object objectForKey:@"driveLengthHours"];
+                scenicDriveObject.driveLengthMiles = [object objectForKey:@"driveLengthMiles"];
                 scenicDriveObject.coverPhotoReference = [object objectForKey:@"coverPhoto"];
+                scenicDriveObject.latitude = [object objectForKey:@"latitude"];
+                scenicDriveObject.longitude = [object objectForKey:@"longitude"];
                 
                 //TODO: This is going to be loading images for all of the scenic drives, should only load when cell is visible
                 PFFile *coverPhoto = scenicDriveObject.coverPhotoReference;
@@ -123,6 +129,8 @@
     
     ScenicDrives *currentDriveIndex = [scenicDrivesList objectAtIndex:indexPath.row];
     cell.driveName.text = currentDriveIndex.driveName;
+    cell.driveLengthHours.text = [currentDriveIndex.driveLengthHours uppercaseString];
+    cell.driveLengthMiles.text = [NSString stringWithFormat:@"%@ miles", currentDriveIndex.driveLengthMiles];
     cell.coverPhoto.image = currentDriveIndex.coverPhotoImage;
     return cell;
 }
@@ -148,7 +156,10 @@
     if ([[segue identifier] isEqualToString:@"openMapViewSegue"]) {
         
         MainMapViewController *vc = [segue destinationViewController];
-        MBWaypoint *destinationWaypoint = [[MBWaypoint alloc] initWithCoordinate:CLLocationCoordinate2DMake(38.9131752, -77.0324047) coordinateAccuracy:-1 name:@"Mapbox"];
+        
+        ScenicDrives *selectedDrive = [scenicDrivesList objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+        
+        MBWaypoint *destinationWaypoint = [[MBWaypoint alloc] initWithCoordinate:CLLocationCoordinate2DMake([selectedDrive.latitude doubleValue], [selectedDrive.longitude doubleValue]) coordinateAccuracy:-1 name:selectedDrive.driveName];
         [vc setDestinationWaypoint:destinationWaypoint];
     }
 }

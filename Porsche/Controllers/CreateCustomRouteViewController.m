@@ -26,10 +26,10 @@
 
     self.waypointsList = [[NSMutableArray alloc] init];
     
-//    Waypoint *waypoint = [[Waypoint alloc] init];
-//    waypoint.addressTitle = @"Home";
-//    waypoint.addressDetail = @"Your Current Location";
-//    [self.waypointsList addObject:waypoint];
+    Waypoint *waypoint = [[Waypoint alloc] init];
+    waypoint.addressTitle = @"Home";
+    waypoint.addressDetail = @"Your Current Location";
+    [self.waypointsList addObject:waypoint];
     
     self.tableView.delegate = self;
     [self.tableView setEditing:YES animated:YES];
@@ -101,8 +101,6 @@
         
         [self.searchDisplayController setActive:NO animated:YES];
         [self.numberOfDestinationsLabel setText:[NSString stringWithFormat:@"%ld STOPS", [self.waypointsList count]]];
-    } else {
-        
     }
 }
 
@@ -154,17 +152,13 @@
         
         //TODO: Combine this with the table view's data source
         NSMutableArray<MBWaypoint *> *allRouteWaypoints = [[NSMutableArray alloc] init];
-        
-        for (int x = 0; x < [self.waypointsList count]; x++) {
+        for (int x = 1; x < [self.waypointsList count]; x++) {
             Waypoint *waypoint = [self.waypointsList objectAtIndex:x];
             [allRouteWaypoints addObject:[[MBWaypoint alloc] initWithCoordinate:waypoint.coordinate coordinateAccuracy:-1 name:waypoint.addressTitle]];
         }
         
-        MBRouteOptions *options = [[MBRouteOptions alloc] initWithWaypoints:allRouteWaypoints profileIdentifier:MBDirectionsProfileIdentifierAutomobileAvoidingTraffic];
-        options.includesSteps = YES;
-        
         MainMapViewController *vc = [segue destinationViewController];
-        [vc setDirectionsRouteOptions:options];
+        [vc setAllRouteWaypoints:allRouteWaypoints];
     }
 }
 @end

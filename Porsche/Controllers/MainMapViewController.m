@@ -10,7 +10,10 @@
 #import "CustomUserLocationAnnotationView.h"
 #import "ParkingGarages.h"
 #import "LSFloatingActionMenu.h"
+#import "DriveExperienceBaseViewController.h"
+
 #import <Parse/Parse.h>
+#import <Photos/Photos.h>
 
 @interface MainMapViewController ()
 
@@ -19,7 +22,9 @@
 @end
 
 @implementation MainMapViewController {
+    NSTimer *videoTimer;
     NSMutableArray *parkingGaragesList;
+    __block NSDictionary *currentVideo;
 }
 
 - (void)viewDidLoad {
@@ -29,6 +34,10 @@
     [self loadParkingGarages];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [self populateMapFromData];
+}
+
 -(void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -36,39 +45,6 @@
 #pragma mark - Button Actions
 - (IBAction)onTopLeftButtonClicked:(UIButton *)sender {
     [self showMenuFromButton:sender withDirection:LSFloatingActionMenuDirectionUp];
-    
-//    if (self.destinationWaypoint != nil) {
-//        NSLog(@"Trying to load route.: %f to %f", self.mapView.userLocation.coordinate.latitude, self.destinationWaypoint.coordinate.latitude);
-//        [self calculateRoutefromOrigin:self.mapView.userLocation.coordinate
-//                         toDestination:self.destinationWaypoint.coordinate
-//                            completion:^(MBRoute * _Nullable route, NSError * _Nullable error) {
-//                                if (error != nil) {
-//                                    NSLog(@"Error calculating route: %@", error);
-//                                }
-//
-//                                NSLog(@"Completed this call.");
-//                            }];
-//    }
-    
-    if (self.directionsRouteOptions != nil) {
-        (void)[[MBDirections sharedDirections] calculateDirectionsWithOptions:self.directionsRouteOptions completionHandler:^(
-                                                                                                          NSArray<MBWaypoint *> *waypoints,
-                                                                                                          NSArray<MBRoute *> *routes,
-                                                                                                          NSError *error) {
-            
-            if (!routes.firstObject) {
-                return;
-            }
-            
-            MBRoute *route = routes.firstObject;
-            self.directionsRoute = route;
-            CLLocationCoordinate2D *routeCoordinates = malloc(route.coordinateCount * sizeof(CLLocationCoordinate2D));
-            [route getCoordinates:routeCoordinates];
-            
-            // Draw the route on the map after creating it
-            [self drawRoute:routeCoordinates];
-        }];
-    }
 }
 
 - (void)showMenuFromButton:(UIButton *)button withDirection:(LSFloatingActionMenuDirection)direction {
@@ -121,16 +97,62 @@
     self.mapView.showsUserHeadingIndicator = YES;
     self.mapView.showsUserLocation = YES;
     [self.mapView setUserTrackingMode:MGLUserTrackingModeFollow animated:YES];
-    
-//    if (self.mapView.userLocation != nil) {
-//        [self.mapView setCenterCoordinate:self.mapView.userLocation.coordinate zoomLevel:7 animated:true];
-//    }
-    
     [self.mapViewContainer addSubview:self.mapView];
+    
+    //self.navigationViewController.routeController.locationManager = [MBSimulatedLocationManager alloc] initWithRoute:<#(MBRoute * _Nonnull)#>];
     
     // Add a gesture recognizer to the map view
     UILongPressGestureRecognizer *setDestination = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(didLongPress:)];
     [self.mapView addGestureRecognizer:setDestination];
+}
+
+-(void)populateMapFromData {
+    if (self.destinationWaypoint != nil) {
+        NSLog(@"Trying to load route.: %f to %f", self.mapView.userLocation.coordinate, self.destinationWaypoint.coordinate.latitude);
+        [self calculateRoutefromOrigin:self.mapView.userLocation.coordinate
+                         toDestination:self.destinationWaypoint.coordinate
+                            completion:^(MBRoute * _Nullable route, NSError * _Nullable error) {
+                                if (error != nil) {
+                                    NSLog(@"Error calculating route: %@", error);
+                                }
+                                
+                                NSLog(@"Completed this call.");
+                            }];
+    } else if (self.allRouteWaypoints != nil) {
+        
+        //Adding proper user location
+        [self.allRouteWaypoints insertObject:[[MBWaypoint alloc] initWithCoordinate:self.mapView.userLocation.coordinate coordinateAccuracy:-1 name:@"Current Location"] atIndex:0];
+        
+        NSLog(@"My location: %f", self.mapView.userLocation.coordinate.latitude);
+        NSLog(@"Waypoints: %@", [self.allRouteWaypoints description]);
+        
+        MBRouteOptions *directionsRouteOptions = [[MBRouteOptions alloc] initWithWaypoints:self.allRouteWaypoints profileIdentifier:MBDirectionsProfileIdentifierAutomobileAvoidingTraffic];
+        directionsRouteOptions.includesSteps = YES;
+        
+        (void)[[MBDirections sharedDirections] calculateDirectionsWithOptions:directionsRouteOptions completionHandler:^(
+                                                                                                                         NSArray<MBWaypoint *> *waypoints,
+                                                                                                                         NSArray<MBRoute *> *routes,
+                                                                                                                         NSError *error) {
+            
+            if (!routes.firstObject) {
+                return;
+            }
+            
+            MBRoute *route = routes.firstObject;
+            self.directionsRoute = route;
+            CLLocationCoordinate2D *routeCoordinates = malloc(route.coordinateCount * sizeof(CLLocationCoordinate2D));
+            [route getCoordinates:routeCoordinates];
+            
+            // Draw the route on the map after creating it
+            [self drawRoute:routeCoordinates];
+            
+            //Add the navigation annotation once view is drawn
+            MGLPointAnnotation *annotation = [MGLPointAnnotation alloc];
+            annotation.coordinate = [waypoints lastObject].coordinate;
+            annotation.title = @"Start Navigation";
+            [self.mapView addAnnotation:annotation];
+        }];
+    }
 }
 
 -(void)loadParkingGarages {
@@ -215,8 +237,15 @@
         self.directionsRoute = route;
         CLLocationCoordinate2D *routeCoordinates = malloc(route.coordinateCount * sizeof(CLLocationCoordinate2D));
         [route getCoordinates:routeCoordinates];
+        
         // Draw the route on the map after creating it
         [self drawRoute:routeCoordinates];
+        
+        //Add the navigation annotation once view is drawn
+        MGLPointAnnotation *annotation = [MGLPointAnnotation alloc];
+        annotation.coordinate = self.destinationWaypoint.coordinate;
+        annotation.title = @"Start Navigation";
+        [self.mapView addAnnotation:annotation];
     }];
 }
 
@@ -253,45 +282,14 @@
 
 // Present the navigation view controller when the callout is selected
 -(void)mapView:(MGLMapView *)mapView tapOnCalloutForAnnotation:(id<MGLAnnotation>)annotation {
-    MBNavigationViewController *navigationViewController = [[MBNavigationViewController alloc] initWithRoute:_directionsRoute directions:[MBDirections sharedDirections] style:nil locationManager:nil];
-    [self presentViewController:navigationViewController animated:YES completion:nil];
+    [self performSegueWithIdentifier:@"showDriveBaseViewController" sender:self];
 }
 
-//- (MGLAnnotationImage *)mapView:(MGLMapView *)mapView imageForAnnotation:(id <MGLAnnotation>)annotation {
-//    // Try to reuse the existing ‘pisa’ annotation image, if it exists.
-//    MGLAnnotationImage *annotationImage = [mapView dequeueReusableAnnotationImageWithIdentifier:@"PorscheName"];
-//
-//    // If the ‘pisa’ annotation image hasn‘t been set yet, initialize it here.
-//    if (!annotationImage) {
-//        // Leaning Tower of Pisa by Stefan Spieler from the Noun Project.
-//        UIImage *image = [UIImage imageNamed:@"PorscheName"];
-//        image = [image imageWithAlignmentRectInsets:UIEdgeInsetsMake(0, 0, image.size.height/2, 0)];
-//
-//        // Initialize the ‘pisa’ annotation image with the UIImage we just loaded.
-//        annotationImage = [MGLAnnotationImage annotationImageWithImage:image reuseIdentifier:@"PorscheName"];
-//    }
-//
-//    return annotationImage;
-//}
-
-//- (MGLAnnotationView *)mapView:(MGLMapView *)mapView viewForAnnotation:(id<MGLAnnotation>)annotation {
-//    // Substitute our custom view for the user location annotation. This custom view is defined above.
-//    if ([annotation isKindOfClass:[MGLUserLocation class]]) {
-//        return [[CustomUserLocationAnnotationView alloc] init];
-//    }
-//
-//    return nil;
-//}
-
-// Optional: tap the user location annotation to toggle heading tracking mode.
-//- (void)mapView:(MGLMapView *)mapView didSelectAnnotation:(id<MGLAnnotation>)annotation {
-//    if (mapView.userTrackingMode != MGLUserTrackingModeFollowWithHeading) {
-//        mapView.userTrackingMode = MGLUserTrackingModeFollowWithHeading;
-//    } else {
-//        [mapView resetNorth];
-//    }
-//    
-//    // We're borrowing this method as a gesture recognizer, so reset selection state.
-//    [mapView deselectAnnotation:annotation animated:NO];
-//}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"showDriveBaseViewController"]) {
+        
+        DriveExperienceBaseViewController *vc = [segue destinationViewController];
+        [vc setDirectionsRoute:self.directionsRoute];
+    }
+}
 @end

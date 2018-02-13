@@ -107,5 +107,11 @@ Lato-ThinItalic.ttf</string>
 	</array>
 	<key>View controller-based status bar appearance equal</key>
 	<false/>
+	<key>NSCameraUsageDescription</key>
+	<string>Used to record your drive</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Saving drive montage</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Used to record your drive</string>
 </dict>
 </plist>

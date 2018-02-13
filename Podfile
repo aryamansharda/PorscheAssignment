@@ -10,5 +10,6 @@ target 'Porsche' do
   pod 'CBStoreHouseRefreshControl'
   pod 'MapboxNavigation'
   pod 'LSFloatingActionMenu', '~> 1.0.0'
-
+  pod 'PBJVision'
+  pod 'LUNSegmentedControl'
 end

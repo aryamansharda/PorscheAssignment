@@ -2,7 +2,7 @@ import Foundation
 import MapboxDirections
 import Turf
 
-fileprivate let maximumSpeed: CLLocationSpeed = 30 // ~108 kmh
+fileprivate let maximumSpeed: CLLocationSpeed = 300 // ~108 kmh
 fileprivate let minimumSpeed: CLLocationSpeed = 6 // ~21 kmh
 fileprivate var distanceFilter: CLLocationDistance = 10
 fileprivate var verticalAccuracy: CLLocationAccuracy = 10
@@ -31,7 +31,7 @@ fileprivate class SimulatedLocation: CLLocation {
 public class SimulatedLocationManager: NavigationLocationManager {
     fileprivate var currentDistance: CLLocationDistance = 0
     fileprivate var currentLocation = CLLocation()
-    fileprivate var currentSpeed: CLLocationSpeed = 30
+    @objc public var currentSpeed: CLLocationSpeed = maximumSpeed
     
     fileprivate var locations: [SimulatedLocation]!
     fileprivate var routeLine = [CLLocationCoordinate2D]()
@@ -70,7 +70,7 @@ public class SimulatedLocationManager: NavigationLocationManager {
             locations = coordinates.simulatedLocationsWithTurnPenalties()
             
             currentDistance = 0
-            currentSpeed = 30
+            currentSpeed = maximumSpeed
             DispatchQueue.main.async {
                 self.startUpdatingLocation()
             }
