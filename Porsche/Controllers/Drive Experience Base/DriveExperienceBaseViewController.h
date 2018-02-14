@@ -8,13 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <Photos/Photos.h>
+
 #import "PBJVision.h"
 #import "LUNSegmentedControl.h"
-
-@import Mapbox;
-@import MapboxNavigation;
-@import MapboxDirections;
-@import MapboxCoreNavigation;
 
 @interface DriveExperienceBaseViewController : UIViewController <MBNavigationViewControllerDelegate, PBJVisionDelegate, LUNSegmentedControlDelegate, LUNSegmentedControlDataSource>
 

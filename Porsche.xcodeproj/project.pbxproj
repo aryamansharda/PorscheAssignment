@@ -31,8 +31,6 @@
 		933BB9F0202F5D5700613E57 /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 933BB9DD202F5D5600613E57 /* Lato-ThinItalic.ttf */; };
 		933BB9F1202F5D5700613E57 /* SIL Open Font License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 933BB9DE202F5D5600613E57 /* SIL Open Font License.txt */; };
 		933BB9F5202F6AC600613E57 /* MainMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 933BB9F4202F6AC600613E57 /* MainMapViewController.m */; };
-		933BB9F9202F6ED100613E57 /* GoogleMapsDirectionEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 933BB9F8202F6ED100613E57 /* GoogleMapsDirectionEngine.m */; };
-		933BB9FD202FB01100613E57 /* CustomUserLocationAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 933BB9FC202FB01100613E57 /* CustomUserLocationAnnotationView.m */; };
 		933BBA05202FD09300613E57 /* ParkingGarages.m in Sources */ = {isa = PBXBuildFile; fileRef = 933BBA04202FD09300613E57 /* ParkingGarages.m */; };
 		933BBA082030280A00613E57 /* CreateCustomRouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 933BBA072030280A00613E57 /* CreateCustomRouteViewController.m */; };
 		933BBA47203034C600613E57 /* HySpinerLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 933BBA41203034C500613E57 /* HySpinerLayer.m */; };
@@ -80,13 +78,8 @@
 		933BB9DC202F5D5600613E57 /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
 		933BB9DD202F5D5600613E57 /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
 		933BB9DE202F5D5600613E57 /* SIL Open Font License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SIL Open Font License.txt"; sourceTree = "<group>"; };
-		933BB9F3202F6AC600613E57 /* MainMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MainMapViewController.h; path = Porsche/Controllers/MainMapViewController.h; sourceTree = SOURCE_ROOT; };
-		933BB9F4202F6AC600613E57 /* MainMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MainMapViewController.m; path = Porsche/Controllers/MainMapViewController.m; sourceTree = SOURCE_ROOT; };
-		933BB9F7202F6ED100613E57 /* GoogleMapsDirectionEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoogleMapsDirectionEngine.h; sourceTree = "<group>"; };
-		933BB9F8202F6ED100613E57 /* GoogleMapsDirectionEngine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoogleMapsDirectionEngine.m; sourceTree = "<group>"; };
-		933BB9FB202FB01100613E57 /* CustomUserLocationAnnotationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomUserLocationAnnotationView.h; sourceTree = "<group>"; };
-		933BB9FC202FB01100613E57 /* CustomUserLocationAnnotationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomUserLocationAnnotationView.m; sourceTree = "<group>"; };
-		933BB9FE202FB54800613E57 /* Porsche-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Porsche-Bridging-Header.h"; sourceTree = "<group>"; };
+		933BB9F3202F6AC600613E57 /* MainMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MainMapViewController.h; path = "Porsche/Controllers/Main Map View/MainMapViewController.h"; sourceTree = SOURCE_ROOT; };
+		933BB9F4202F6AC600613E57 /* MainMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MainMapViewController.m; path = "Porsche/Controllers/Main Map View/MainMapViewController.m"; sourceTree = SOURCE_ROOT; };
 		933BBA03202FD09300613E57 /* ParkingGarages.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParkingGarages.h; sourceTree = "<group>"; };
 		933BBA04202FD09300613E57 /* ParkingGarages.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParkingGarages.m; sourceTree = "<group>"; };
 		933BBA062030280A00613E57 /* CreateCustomRouteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateCustomRouteViewController.h; sourceTree = "<group>"; };
@@ -114,6 +107,8 @@
 		93750DB3202E7D07007A9BCB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		93750DBA202E7D4D007A9BCB /* SplashScreenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SplashScreenViewController.h; sourceTree = "<group>"; };
 		93750DBB202E7D4D007A9BCB /* SplashScreenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SplashScreenViewController.m; sourceTree = "<group>"; };
+		93B44BE42033D44F00F3BBE0 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		93B44BEE20342B2600F3BBE0 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		966F5DF546DCE67A8B980FEB /* Pods-Porsche.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Porsche.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Porsche/Pods-Porsche.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -161,12 +156,9 @@
 			isa = PBXGroup;
 			children = (
 				933BB9C5202ECE4900613E57 /* Cells */,
-				933BB9BF202E8E8900613E57 /* ScenicDrives.h */,
-				933BB9C0202E8E8900613E57 /* ScenicDrives.m */,
-				933BBA03202FD09300613E57 /* ParkingGarages.h */,
-				933BBA04202FD09300613E57 /* ParkingGarages.m */,
-				933BBA4E2030BC8400613E57 /* Waypoint.h */,
-				933BBA4F2030BC8400613E57 /* Waypoint.m */,
+				93B44BE92033D4F100F3BBE0 /* Scenic Drives Model */,
+				93B44BEA2033D4FC00F3BBE0 /* Parking Garage Model */,
+				93B44BEB2033D50400F3BBE0 /* Waypoint Model */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -174,15 +166,13 @@
 		933BB9C5202ECE4900613E57 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				933BB9C6202ECE5600613E57 /* ScenicDrivesTableViewCell.h */,
-				933BB9C7202ECE5600613E57 /* ScenicDrivesTableViewCell.m */,
-				933BBA4B2030BB0C00613E57 /* WaypointsTableViewCell.h */,
-				933BBA4C2030BB0C00613E57 /* WaypointsTableViewCell.m */,
+				93B44BE72033D4E100F3BBE0 /* Scenic Drives Cell */,
+				93B44BE82033D4EA00F3BBE0 /* Waypoints Cell */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		933BB9CB202F5D5600613E57 /* lato */ = {
+		933BB9CB202F5D5600613E57 /* Lato */ = {
 			isa = PBXGroup;
 			children = (
 				933BB9CC202F5D5600613E57 /* Lato-Black.ttf */,
@@ -205,7 +195,7 @@
 				933BB9DD202F5D5600613E57 /* Lato-ThinItalic.ttf */,
 				933BB9DE202F5D5600613E57 /* SIL Open Font License.txt */,
 			);
-			path = lato;
+			path = Lato;
 			sourceTree = "<group>";
 		};
 		933BB9F2202F6AAF00613E57 /* Scenic Drives List */ = {
@@ -220,35 +210,10 @@
 		933BB9F6202F6E9400613E57 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				933BBA4A203034CC00613E57 /* AnimatedButtonLibrary */,
 				933BB9C9202EE09B00613E57 /* Driving.gif */,
-				933BB9CB202F5D5600613E57 /* lato */,
+				933BB9CB202F5D5600613E57 /* Lato */,
 			);
 			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		933BB9FA202F6ED400613E57 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				933BB9F7202F6ED100613E57 /* GoogleMapsDirectionEngine.h */,
-				933BB9F8202F6ED100613E57 /* GoogleMapsDirectionEngine.m */,
-				933BB9FB202FB01100613E57 /* CustomUserLocationAnnotationView.h */,
-				933BB9FC202FB01100613E57 /* CustomUserLocationAnnotationView.m */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
-		933BBA4A203034CC00613E57 /* AnimatedButtonLibrary */ = {
-			isa = PBXGroup;
-			children = (
-				933BBA45203034C600613E57 /* HySpinerLayer.h */,
-				933BBA41203034C500613E57 /* HySpinerLayer.m */,
-				933BBA42203034C500613E57 /* HyLoginButton.h */,
-				933BBA46203034C600613E57 /* HyLoginButton.m */,
-				933BBA43203034C500613E57 /* HyTransitions.h */,
-				933BBA44203034C600613E57 /* HyTransitions.m */,
-			);
-			path = AnimatedButtonLibrary;
 			sourceTree = "<group>";
 		};
 		93750D98202E7D06007A9BCB = {
@@ -272,10 +237,8 @@
 		93750DA3202E7D06007A9BCB /* Porsche */ = {
 			isa = PBXGroup;
 			children = (
-				93750DA4202E7D06007A9BCB /* AppDelegate.h */,
-				93750DA5202E7D06007A9BCB /* AppDelegate.m */,
-				933BB9FE202FB54800613E57 /* Porsche-Bridging-Header.h */,
-				933BB9FA202F6ED400613E57 /* Helpers */,
+				93B44BE52033D49500F3BBE0 /* Helpers */,
+				93B44BE22033D39B00F3BBE0 /* App */,
 				93750DBD202E7D50007A9BCB /* Controllers */,
 				933BB9BD202E8E7300613E57 /* Storyboards */,
 				933BB9F6202F6E9400613E57 /* Supporting Files */,
@@ -290,14 +253,11 @@
 		93750DBD202E7D50007A9BCB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				933BBA51203119EA00613E57 /* DriveExperienceBaseViewController.h */,
-				933BBA52203119EA00613E57 /* DriveExperienceBaseViewController.m */,
-				933BB9F3202F6AC600613E57 /* MainMapViewController.h */,
-				933BB9F4202F6AC600613E57 /* MainMapViewController.m */,
+				93B44BEC203423CE00F3BBE0 /* Drive Experience Base */,
+				93B44BE32033D40000F3BBE0 /* Main Map View */,
 				93750DBE202E7D5B007A9BCB /* Splash Screen */,
 				933BB9F2202F6AAF00613E57 /* Scenic Drives List */,
-				933BBA062030280A00613E57 /* CreateCustomRouteViewController.h */,
-				933BBA072030280A00613E57 /* CreateCustomRouteViewController.m */,
+				93B44BED203423DE00F3BBE0 /* Create Custom Trip */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -309,6 +269,111 @@
 				93750DBB202E7D4D007A9BCB /* SplashScreenViewController.m */,
 			);
 			path = "Splash Screen";
+			sourceTree = "<group>";
+		};
+		93B44BE22033D39B00F3BBE0 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				93750DA4202E7D06007A9BCB /* AppDelegate.h */,
+				93750DA5202E7D06007A9BCB /* AppDelegate.m */,
+				93B44BE42033D44F00F3BBE0 /* PrefixHeader.pch */,
+				93B44BEE20342B2600F3BBE0 /* Constants.h */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		93B44BE32033D40000F3BBE0 /* Main Map View */ = {
+			isa = PBXGroup;
+			children = (
+				933BB9F3202F6AC600613E57 /* MainMapViewController.h */,
+				933BB9F4202F6AC600613E57 /* MainMapViewController.m */,
+			);
+			path = "Main Map View";
+			sourceTree = "<group>";
+		};
+		93B44BE52033D49500F3BBE0 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				93B44BE62033D4CE00F3BBE0 /* Animated Transition Button */,
+			);
+			name = Helpers;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		93B44BE62033D4CE00F3BBE0 /* Animated Transition Button */ = {
+			isa = PBXGroup;
+			children = (
+				933BBA45203034C600613E57 /* HySpinerLayer.h */,
+				933BBA41203034C500613E57 /* HySpinerLayer.m */,
+				933BBA42203034C500613E57 /* HyLoginButton.h */,
+				933BBA46203034C600613E57 /* HyLoginButton.m */,
+				933BBA43203034C500613E57 /* HyTransitions.h */,
+				933BBA44203034C600613E57 /* HyTransitions.m */,
+			);
+			path = "Animated Transition Button";
+			sourceTree = "<group>";
+		};
+		93B44BE72033D4E100F3BBE0 /* Scenic Drives Cell */ = {
+			isa = PBXGroup;
+			children = (
+				933BB9C6202ECE5600613E57 /* ScenicDrivesTableViewCell.h */,
+				933BB9C7202ECE5600613E57 /* ScenicDrivesTableViewCell.m */,
+			);
+			path = "Scenic Drives Cell";
+			sourceTree = "<group>";
+		};
+		93B44BE82033D4EA00F3BBE0 /* Waypoints Cell */ = {
+			isa = PBXGroup;
+			children = (
+				933BBA4B2030BB0C00613E57 /* WaypointsTableViewCell.h */,
+				933BBA4C2030BB0C00613E57 /* WaypointsTableViewCell.m */,
+			);
+			path = "Waypoints Cell";
+			sourceTree = "<group>";
+		};
+		93B44BE92033D4F100F3BBE0 /* Scenic Drives Model */ = {
+			isa = PBXGroup;
+			children = (
+				933BB9BF202E8E8900613E57 /* ScenicDrives.h */,
+				933BB9C0202E8E8900613E57 /* ScenicDrives.m */,
+			);
+			path = "Scenic Drives Model";
+			sourceTree = "<group>";
+		};
+		93B44BEA2033D4FC00F3BBE0 /* Parking Garage Model */ = {
+			isa = PBXGroup;
+			children = (
+				933BBA03202FD09300613E57 /* ParkingGarages.h */,
+				933BBA04202FD09300613E57 /* ParkingGarages.m */,
+			);
+			path = "Parking Garage Model";
+			sourceTree = "<group>";
+		};
+		93B44BEB2033D50400F3BBE0 /* Waypoint Model */ = {
+			isa = PBXGroup;
+			children = (
+				933BBA4E2030BC8400613E57 /* Waypoint.h */,
+				933BBA4F2030BC8400613E57 /* Waypoint.m */,
+			);
+			path = "Waypoint Model";
+			sourceTree = "<group>";
+		};
+		93B44BEC203423CE00F3BBE0 /* Drive Experience Base */ = {
+			isa = PBXGroup;
+			children = (
+				933BBA51203119EA00613E57 /* DriveExperienceBaseViewController.h */,
+				933BBA52203119EA00613E57 /* DriveExperienceBaseViewController.m */,
+			);
+			path = "Drive Experience Base";
+			sourceTree = "<group>";
+		};
+		93B44BED203423DE00F3BBE0 /* Create Custom Trip */ = {
+			isa = PBXGroup;
+			children = (
+				933BBA062030280A00613E57 /* CreateCustomRouteViewController.h */,
+				933BBA072030280A00613E57 /* CreateCustomRouteViewController.m */,
+			);
+			path = "Create Custom Trip";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -510,10 +575,8 @@
 				933BBA48203034C600613E57 /* HyTransitions.m in Sources */,
 				93750DA6202E7D06007A9BCB /* AppDelegate.m in Sources */,
 				933BB9F5202F6AC600613E57 /* MainMapViewController.m in Sources */,
-				933BB9FD202FB01100613E57 /* CustomUserLocationAnnotationView.m in Sources */,
 				933BBA082030280A00613E57 /* CreateCustomRouteViewController.m in Sources */,
 				933BBA49203034C600613E57 /* HyLoginButton.m in Sources */,
-				933BB9F9202F6ED100613E57 /* GoogleMapsDirectionEngine.m in Sources */,
 				933BB9C4202EC65400613E57 /* ScenicDrivesViewController.m in Sources */,
 				933BBA53203119EA00613E57 /* DriveExperienceBaseViewController.m in Sources */,
 				933BB9C8202ECE5600613E57 /* ScenicDrivesTableViewCell.m in Sources */,
@@ -660,6 +723,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = W735WRNN72;
+				GCC_PREFIX_HEADER = Porsche/App/PrefixHeader.pch;
 				INFOPLIST_FILE = Porsche/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -681,6 +745,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = W735WRNN72;
+				GCC_PREFIX_HEADER = Porsche/App/PrefixHeader.pch;
 				INFOPLIST_FILE = Porsche/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

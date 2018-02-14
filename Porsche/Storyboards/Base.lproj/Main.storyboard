@@ -164,7 +164,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="h0Z-ai-rQz"/>
                     </view>
-                    <navigationItem key="navigationItem" title="PORSCHE" id="ZWf-Nl-oHm">
+                    <navigationItem key="navigationItem" id="ZWf-Nl-oHm">
                         <barButtonItem key="rightBarButtonItem" image="WhitePlus" largeContentSizeImage=" " width="32" id="mD9-wT-4CQ">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -407,31 +407,24 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="84.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FROM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CBi-C3-17L">
-                                                    <rect key="frame" x="53" y="21" width="41" height="13"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MapIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Lt9-rl-aWe">
+                                                    <rect key="frame" x="15" y="33" width="20" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="10"/>
-                                                    <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Location" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVj-Z3-rCp">
-                                                    <rect key="frame" x="53" y="32" width="288" height="21"/>
+                                                    <rect key="frame" x="52" y="25" width="288" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="17"/>
                                                     <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Current Location" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XnM-YL-fi3">
-                                                    <rect key="frame" x="53" y="52" width="288" height="15"/>
+                                                    <rect key="frame" x="52" y="45" width="288" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="12"/>
                                                     <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BulletPoint" translatesAutoresizingMaskIntoConstraints="NO" id="Lt9-rl-aWe">
-                                                    <rect key="frame" x="15" y="33" width="20" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </tableViewCellContentView>
@@ -439,8 +432,6 @@
                                         <connections>
                                             <outlet property="addressDetailLabel" destination="XnM-YL-fi3" id="QLj-2W-fNj"/>
                                             <outlet property="addressLabel" destination="LVj-Z3-rCp" id="QCf-3l-nGB"/>
-                                            <outlet property="fromOrToLabel" destination="CBi-C3-17L" id="GFx-3P-zfd"/>
-                                            <outlet property="icon" destination="Lt9-rl-aWe" id="eHB-v9-JKO"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchResultsCell" rowHeight="85" id="dgX-NT-Jb9" customClass="WaypointsTableViewCell">
@@ -550,7 +541,7 @@
     </scenes>
     <resources>
         <image name=" " width="16" height="16"/>
-        <image name="BulletPoint" width="512" height="512"/>
+        <image name="MapIcon" width="320" height="512"/>
         <image name="PlusIcon" width="256" height="256"/>
         <image name="PorscheLogo" width="1598" height="762"/>
         <image name="RoadTripIcon" width="6591" height="4540"/>
@@ -558,6 +549,6 @@
         <image name="blueButtonStandard" width="1380" height="180"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xex-OW-rgj"/>
+        <segue reference="Pot-fx-eVG"/>
     </inferredMetricsTieBreakers>
 </document>

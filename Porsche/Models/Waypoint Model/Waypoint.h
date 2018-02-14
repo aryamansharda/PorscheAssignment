@@ -14,4 +14,7 @@
 @property (nonatomic, retain) NSString *addressTitle;
 @property (nonatomic, retain) NSString *addressDetail;
 @property (nonatomic) CLLocationCoordinate2D coordinate;
+
+-(void)configureFromMKMapItem:(MKMapItem *)item;
+
 @end

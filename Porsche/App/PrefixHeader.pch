@@ -1,0 +1,21 @@
+//
+//  PrefixHeader.pch
+//  Porsche
+//
+//  Created by Aryaman Sharda on 2/13/18.
+//  Copyright © 2018 Aryaman Sharda. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import <Parse/Parse.h>
+#import <MapKit/MapKit.h>
+#import "Constants.h"
+
+@import Mapbox;
+@import MapboxNavigation;
+@import MapboxDirections;
+@import MapboxCoreNavigation;
+
+#endif /* PrefixHeader_pch */

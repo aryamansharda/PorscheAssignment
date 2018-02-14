@@ -15,4 +15,6 @@
 @property (nonatomic, retain) NSNumber *latitude;
 @property (nonatomic, retain) NSNumber *longitude;
 
+-(void)configureFromParseObject:(PFObject *)object;
+
 @end

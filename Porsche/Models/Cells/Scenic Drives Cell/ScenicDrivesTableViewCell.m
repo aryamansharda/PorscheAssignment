@@ -12,13 +12,17 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+}
 
-    // Configure the view for the selected state
+-(void)configureFromScenicDrives:(ScenicDrives *)scenicDrive {
+    self.driveName.text = scenicDrive.driveName;
+    self.driveLengthHours.text = [scenicDrive.driveLengthHours uppercaseString];
+    self.driveLengthMiles.text = [NSString stringWithFormat:@"%@ miles", scenicDrive.driveLengthMiles];
+    self.coverPhoto.image = scenicDrive.coverPhotoImage;
 }
 
 @end

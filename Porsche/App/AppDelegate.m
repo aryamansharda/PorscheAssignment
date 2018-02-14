@@ -17,6 +17,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    [Parse initializeWithConfiguration: [ParseClientConfiguration configurationWithBlock: ^ (id < ParseMutableClientConfiguration > _Nonnull configuration) {
+        configuration.applicationId = @"PorscheScenicDriveParseAppID";
+        configuration.clientKey = @"PorscheScenicDriveParseMasterKey";
+        configuration.server = @"https://porsche-scenic-drive.herokuapp.com/parse";
+        configuration.localDatastoreEnabled = NO;
+    }]];
+    
     return YES;
 }
 

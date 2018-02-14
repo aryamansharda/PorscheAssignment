@@ -21,14 +21,15 @@
 
 @implementation CreateCustomRouteViewController
 
+#pragma mark - View Lifecycle
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.waypointsList = [[NSMutableArray alloc] init];
-    
     Waypoint *waypoint = [[Waypoint alloc] init];
     waypoint.addressTitle = @"Home";
     waypoint.addressDetail = @"Your Current Location";
+    
+    self.waypointsList = [[NSMutableArray alloc] init];
     [self.waypointsList addObject:waypoint];
     
     self.tableView.delegate = self;
@@ -37,7 +38,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }   
 
 #pragma mark - User Action Methods
@@ -47,7 +47,6 @@
 
 #pragma mark - Table View Delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"Length: %ld", [self.localSearchResults.mapItems count]);
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         return [self.localSearchResults.mapItems count];
     } else {
@@ -55,8 +54,7 @@
     }
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {    
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         static NSString *IDENTIFIER = @"SearchResultsCell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER];
@@ -77,30 +75,23 @@
         }
         
         Waypoint *waypoint = [self.waypointsList objectAtIndex:indexPath.row];
-        cell.addressDetailLabel.text = waypoint.addressDetail;
-        cell.addressLabel.text = waypoint.addressTitle;
-        cell.addressLabel.layer.cornerRadius = 5.0;
-        cell.addressLabel.clipsToBounds = YES;
-        cell.icon.image = [UIImage imageNamed:@"MapIcon"];
+        [cell configureFromWaypoint:waypoint];
         
         return cell;
     }
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         MKMapItem *item = self.localSearchResults.mapItems[indexPath.row];
-        NSLog(@"MAP ITEM: %@", item.description);
         
         Waypoint *waypoint = [[Waypoint alloc] init];
-        waypoint.addressTitle = [[item placemark] name];
-        waypoint.addressDetail = [[item placemark] title];
-        waypoint.coordinate =  [[item placemark] coordinate];
+        [waypoint configureFromMKMapItem:item];
         [self.waypointsList addObject:waypoint];
-        [self.searchDisplayController.searchResultsTableView reloadData];[self.tableView reloadData];
         
+        [self.searchDisplayController.searchResultsTableView reloadData];
         [self.searchDisplayController setActive:NO animated:YES];
+        
         [self.numberOfDestinationsLabel setText:[NSString stringWithFormat:@"%ld STOPS", [self.waypointsList count]]];
     }
 }

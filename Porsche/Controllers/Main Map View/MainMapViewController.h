@@ -7,13 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Porsche-Bridging-Header.h"
 #import "PBJVision.h"
-
-@import Mapbox;
-@import MapboxNavigation;
-@import MapboxDirections;
-@import MapboxCoreNavigation;
 
 @interface MainMapViewController : UIViewController <MGLMapViewDelegate>
 

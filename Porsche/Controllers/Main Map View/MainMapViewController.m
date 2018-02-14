@@ -7,7 +7,6 @@
 //
 
 #import "MainMapViewController.h"
-#import "CustomUserLocationAnnotationView.h"
 #import "ParkingGarages.h"
 #import "LSFloatingActionMenu.h"
 #import "DriveExperienceBaseViewController.h"
@@ -18,14 +17,13 @@
 @interface MainMapViewController ()
 
 @property (strong, nonatomic) LSFloatingActionMenu *actionMenu;
+@property (strong, nonatomic) NSTimer *videoTimer;
+@property (strong, nonatomic) NSMutableArray *parkingGaragesList;
+@property (strong, nonatomic) __block NSDictionary *currentVideo;
 
 @end
 
-@implementation MainMapViewController {
-    NSTimer *videoTimer;
-    NSMutableArray *parkingGaragesList;
-    __block NSDictionary *currentVideo;
-}
+@implementation MainMapViewController 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -78,7 +76,7 @@
         button.hidden = NO;
     }];
     
-    self.actionMenu.itemSpacing = 12;
+    self.actionMenu.itemSpacing = STANDARD_BUTTON_SPACING;
     self.actionMenu.startPoint = button.center;
     
     [self.view addSubview:self.actionMenu];
@@ -106,7 +104,6 @@
 
 -(void)populateMapFromData {
     if (self.destinationWaypoint != nil) {
-        NSLog(@"Trying to load route.: %f to %f", self.mapView.userLocation.coordinate, self.destinationWaypoint.coordinate.latitude);
         [self calculateRoutefromOrigin:self.mapView.userLocation.coordinate
                          toDestination:self.destinationWaypoint.coordinate
                             completion:^(MBRoute * _Nullable route, NSError * _Nullable error) {
@@ -120,9 +117,6 @@
         
         //Adding proper user location
         [self.allRouteWaypoints insertObject:[[MBWaypoint alloc] initWithCoordinate:self.mapView.userLocation.coordinate coordinateAccuracy:-1 name:@"Current Location"] atIndex:0];
-        
-        NSLog(@"My location: %f", self.mapView.userLocation.coordinate.latitude);
-        NSLog(@"Waypoints: %@", [self.allRouteWaypoints description]);
         
         MBRouteOptions *directionsRouteOptions = [[MBRouteOptions alloc] initWithWaypoints:self.allRouteWaypoints profileIdentifier:MBDirectionsProfileIdentifierAutomobile];
         directionsRouteOptions.includesSteps = YES;
@@ -157,16 +151,13 @@
     PFQuery *query = [PFQuery queryWithClassName:@"ParkingGarages"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            parkingGaragesList = [[NSMutableArray alloc] init];
+            self.parkingGaragesList = [[NSMutableArray alloc] init];
             
             for (PFObject *object in objects) {
                 
                 ParkingGarages *parkingGarage = [[ParkingGarages alloc] init];
-                parkingGarage.address = [object objectForKey:@"Address"];
-                parkingGarage.type = [object objectForKey:@"Type"];
-                parkingGarage.latitude = [object objectForKey:@"Latitude"];
-                parkingGarage.longitude = [object objectForKey:@"Longitude"];
-                [parkingGaragesList addObject:parkingGarage];
+                [parkingGarage configureFromParseObject:object];
+                [self.parkingGaragesList addObject:parkingGarage];
             }
         } else {
             NSLog(@"Error: %@ %@", error, [error userInfo]);
@@ -175,8 +166,8 @@
 }
 
 -(void)showParkingGarages {
-    for (int x = 0; x < [parkingGaragesList count]; x++) {
-        ParkingGarages *parkingGarage = [parkingGaragesList objectAtIndex:x];
+    for (int x = 0; x < [self.parkingGaragesList count]; x++) {
+        ParkingGarages *parkingGarage = [self.parkingGaragesList objectAtIndex:x];
         MGLPointAnnotation *annotation = [MGLPointAnnotation alloc];
         annotation.coordinate = CLLocationCoordinate2DMake([parkingGarage.latitude doubleValue], [parkingGarage.longitude doubleValue]);
         annotation.title = @"Parking Garage";

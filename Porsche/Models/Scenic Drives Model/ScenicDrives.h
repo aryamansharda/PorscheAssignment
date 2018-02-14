@@ -14,14 +14,13 @@
 @property (nonatomic, retain) NSString *driveName;
 @property (nonatomic, retain) NSString *driveLengthHours;
 @property (nonatomic, retain) NSString *driveLengthMiles;
-@property (nonatomic, retain) NSString *driveGasCost;
-@property (nonatomic, retain) NSString *driveRating;
 
 @property (nonatomic) NSNumber *latitude;
 @property (nonatomic) NSNumber *longitude; 
 
-//TODO: Consolidate this
 @property (nonatomic, retain) PFFile *coverPhotoReference;
 @property (nonatomic, retain) UIImage *coverPhotoImage;
+
+-(void)configureFromParseObject:(PFObject *)object sourceTableView:(UITableView *)tableView;
 
 @end

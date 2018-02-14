@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Waypoint.h"
 
 @interface WaypointsTableViewCell : UITableViewCell
 
-@property (nonatomic, retain) IBOutlet UILabel *fromOrToLabel;
 @property (nonatomic, retain) IBOutlet UILabel *addressLabel;
 @property (nonatomic, retain) IBOutlet UILabel *addressDetailLabel;
-@property (nonatomic, retain) IBOutlet UIImageView *icon;
+
+-(void)configureFromWaypoint:(Waypoint *)waypoint;
+
 
 @end

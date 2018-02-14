@@ -14,11 +14,11 @@
 @interface DriveExperienceBaseViewController ()
 
 @property (nonatomic) NSTimer *cameraControlTimer;
+@property (nonatomic) __block NSDictionary *currentVideo;
+
 @end
 
-@implementation DriveExperienceBaseViewController {
-    __block NSDictionary *currentVideo;
-}
+@implementation DriveExperienceBaseViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,13 +30,13 @@
     
     self.roadTripNameLabel.text = self.directionsRoute.description;
     self.roadTripLengthLabel.text = [NSString stringWithFormat:@"%.0f MILES",(self.directionsRoute.distance/1609.344)];
-    
+
     self.roadTripExpectedTimeLabel.text = [self timeFormatted:self.directionsRoute.expectedTravelTime];
     
-    [self.startNavigationButton setBackgroundColor:[UIColor colorWithRed:42.0f/255.0f green:43.f/255.0f blue:53.0f/255.0f alpha:1]];
+    [self.startNavigationButton setBackgroundColor:DEFAULT_GRAY_ROUNDED_BUTTON_COLOR];
     [self.startNavigationButton setTitle:@"START NAVIGATION" forState:UIControlStateNormal];
-    [self.startNavigationButton.titleLabel setFont:[UIFont fontWithName:@"Lato-Bold" size:15.0]];
-    self.startNavigationButton.layer.cornerRadius = 10.0f;
+    [self.startNavigationButton.titleLabel setFont:[UIFont fontWithName:CUSTOM_FONT_BOLD size:CUSTOM_FONT_BOLD_DEFAULT_SIZE]];
+    self.startNavigationButton.layer.cornerRadius = DEFAULT_GRAY_ROUNDED_BUTTON_RADIUS;
     
     self.montageSegmentedControl.delegate = self;
     self.montageSegmentedControl.dataSource = self;
@@ -53,15 +53,9 @@
 
 -(void)cameraTimeLapseControl {
     if ([PBJVision sharedInstance].isRecording) {
-        NSLog(@"Trying to end video capture");
-        //End video capture, if exists
         [[PBJVision sharedInstance] endVideoCapture];
     } else {
-        NSLog(@"Trying to start video capture");
-        //Update configuration
         [self configureVideoRecording];
-        
-        //Start new capture with new camera direction
         [[PBJVision sharedInstance] startVideoCapture];
     }
 }
@@ -75,9 +69,9 @@
         return;
     }
     
-    currentVideo = videoDict;
+    self.currentVideo = videoDict;
     [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-        NSString *videoPath = [currentVideo  objectForKey:PBJVisionVideoPathKey];
+        NSString *videoPath = [self.currentVideo  objectForKey:PBJVisionVideoPathKey];
         [PHAssetChangeRequest creationRequestForAssetFromVideoAtFileURL:[NSURL URLWithString:videoPath]];
     } completionHandler:^(BOOL success, NSError * _Nullable error1) {
         if (success) {
@@ -94,24 +88,18 @@
     self.navigationViewController = [[MBNavigationViewController alloc] initWithRoute:self.directionsRoute directions:[MBDirections sharedDirections] style:nil locationManager:nil];
     self.navigationViewController.navigationDelegate = self;
     
-    if (self.montageSegmentedControl.currentState == 0) {
-        //TODO: Replace 5 seconds with a better time interval
-        self.cameraControlTimer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(cameraTimeLapseControl) userInfo:nil repeats:YES];
-        NSLog(@"Enabling montage functionality.");
+    if (self.montageSegmentedControl.currentState == ON_SEGMENT_CONTROL_STATE) {
+        self.cameraControlTimer = [NSTimer scheduledTimerWithTimeInterval:TIMELAPSE_FREQUENCY target:self selector:@selector(cameraTimeLapseControl) userInfo:nil repeats:YES];
     }
     
-    if (self.simulatedSegmentedControl.currentState == 0) {
+    if (self.simulatedSegmentedControl.currentState == ON_SEGMENT_CONTROL_STATE) {
         self.navigationViewController.routeController.locationManager = [[MBSimulatedLocationManager alloc] initWithRoute:self.directionsRoute];
-        NSLog(@"Enabling simulation functionality functionality.");
     }
     
     [self presentViewController:self.navigationViewController animated:YES completion:nil];
 }
 
-- (NSString *)timeFormatted:(int)totalSeconds
-{
-    
-    int seconds = totalSeconds % 60;
+- (NSString *)timeFormatted:(int)totalSeconds {
     int minutes = (totalSeconds / 60) % 60;
     int hours = totalSeconds / 3600;
     
@@ -127,13 +115,12 @@
     vision.focusMode = PBJFocusModeContinuousAutoFocus;
     vision.outputFormat = PBJOutputFormatStandard;
     vision.videoBitRate = PBJVideoBitRate480x360;
-    [vision setMaximumCaptureDuration:CMTimeMakeWithSeconds(10, 600)];
+    [vision setMaximumCaptureDuration:CMTimeMakeWithSeconds(DEFAULT_VIDEO_LENGTH, DEFAULT_VIDEO_TIME_SCALE)];
     [vision startPreview];
 }
 
 #pragma mark Navigation Delegate
 - (void)navigationViewControllerDidCancelNavigation:(MBNavigationViewController *)navigationViewController {
-    NSLog(@"Navigation Delegate: Navigation Cancelled");
     [[PBJVision sharedInstance] endVideoCapture];
 
     [self.cameraControlTimer invalidate];
@@ -148,22 +135,22 @@
 - (NSString *)segmentedControl:(LUNSegmentedControl *)segmentedControl titleForStateAtIndex:(NSInteger)index {
     
     if (index == 0) {
-        return @"ON";
+        return ON_SEGMENT_CONTROL_TITLE;
     } else if (index == 1) {
-        return @"OFF";
+        return OFF_SEGMENT_CONTROL_TITLE;
     } else {
-        return @"N/A";
+        return NA_SEGMENT_CONTROL_TITLE;
     }
 }
 
 - (NSArray<UIColor *> *)segmentedControl:(LUNSegmentedControl *)segmentedControl gradientColorsForStateAtIndex:(NSInteger)index {
     switch (index) {
         case 0:
-            return @[[UIColor colorWithRed:160 / 255.0 green:223 / 255.0 blue:56 / 255.0 alpha:1.0], [UIColor colorWithRed:177 / 255.0 green:255 / 255.0 blue:0 / 255.0 alpha:1.0]];
+            return ON_COLOR_SET;
             break;
             
         case 1:
-            return @[[UIColor colorWithRed:78 / 255.0 green:252 / 255.0 blue:208 / 255.0 alpha:1.0], [UIColor colorWithRed:51 / 255.0 green:199 / 255.0 blue:244 / 255.0 alpha:1.0]];
+            return OFF_COLOR_SET;
             break;
             
         default:

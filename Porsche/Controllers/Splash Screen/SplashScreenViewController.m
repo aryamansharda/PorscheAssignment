@@ -9,7 +9,6 @@
 #import "SplashScreenViewController.h"
 #import "ScenicDrivesViewController.h"
 #import "HyTransitions.h"
-#import <Parse/Parse.h>
 
 @interface SplashScreenViewController () 
 
@@ -17,17 +16,16 @@
 
 @implementation SplashScreenViewController
 
+#pragma mark - View Lifecycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //Creating and displaying video background
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Driving" ofType:@"gif"];
     NSData *gif = [NSData dataWithContentsOfFile:filePath];
     
     [self.view setBackgroundColor:[UIColor blackColor]];
     [self.videoBackgroundView loadData:gif MIMEType:@"image/gif" textEncodingName:nil baseURL:nil];
     [self.videoBackgroundView setUserInteractionEnabled:NO];
-    //[self.videoBackgroundView setScalesPageToFit:YES];
     [self.videoBackgroundView setContentMode:UIViewContentModeScaleAspectFit];
     [self.videoBackgroundView setFrame:[UIScreen mainScreen].bounds];
     
@@ -39,19 +37,24 @@
     [self.view setBackgroundColor:[UIColor blackColor]];
     [self.videoBackgroundView setBackgroundColor:[UIColor blackColor]];
     
-    //Configure Login Button
     HyLoginButton *loginButton = [[HyLoginButton alloc] initWithFrame:CGRectMake(20, CGRectGetHeight(self.view.bounds) - (40 + 80), [UIScreen mainScreen].bounds.size.width - 40, 50)];
-    [loginButton setBackgroundColor:[UIColor colorWithRed:42.0f/255.0f green:43.f/255.0f blue:53.0f/255.0f alpha:1]];
+    [loginButton setBackgroundColor:DEFAULT_GRAY_ROUNDED_BUTTON_COLOR];
     [loginButton setTitle:@"GET STARTED" forState:UIControlStateNormal];
-    [loginButton.titleLabel setFont:[UIFont fontWithName:@"Lato-Bold" size:15.0]];
+    [loginButton.titleLabel setFont:[UIFont fontWithName:CUSTOM_FONT_BOLD size:CUSTOM_FONT_BOLD_DEFAULT_SIZE]];
     [loginButton addTarget:self action:@selector(loginButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:loginButton];
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
+#pragma mark - Navigation Bar Apperance
 - (BOOL)prefersStatusBarHidden{
     return YES;
 }
 
+#pragma mark - HyLoginButton Delegate
 - (void)loginButtonTapped:(id)sender {
     typeof(self) __weak weak = self;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5)), dispatch_get_main_queue(), ^{
@@ -69,6 +72,7 @@
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
     navigationController.transitioningDelegate = self;
     
+    
     [self presentViewController:navigationController animated:YES completion:nil];
 }
 
@@ -80,12 +84,6 @@
 
 - (id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
     return [[HyTransitions alloc]initWithTransitionDuration:0.4f StartingAlpha:0.8f isPush:false];
-}
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
