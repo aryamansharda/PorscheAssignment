@@ -4,6 +4,7 @@ PODS:
     - AWSCore (= 2.6.12)
   - Bolts/Tasks (1.9.0)
   - CBStoreHouseRefreshControl (1.0)
+  - Haptica (2.0.0)
   - LSFloatingActionMenu (1.0.0)
   - LUNSegmentedControl (1.0.7)
   - Mapbox-iOS-SDK (3.7.3)
@@ -40,6 +41,7 @@ PODS:
 
 DEPENDENCIES:
   - CBStoreHouseRefreshControl
+  - Haptica
   - LSFloatingActionMenu (~> 1.0.0)
   - LUNSegmentedControl
   - MapboxNavigation
@@ -51,6 +53,7 @@ SPEC CHECKSUMS:
   AWSPolly: acfa17a93ed9c3350e27204126359de5fb51aac5
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   CBStoreHouseRefreshControl: a814bd725e74ff4c1e8dd96eb02358199b0da04f
+  Haptica: ed63c31f32f2aa17ecb479c110dd50904497bf5d
   LSFloatingActionMenu: dc2d6449e817cb2eb3c3a9a751bd49c3aae416b2
   LUNSegmentedControl: f868b1ea740f9917f05dbcb4cded85c33ec606e6
   Mapbox-iOS-SDK: 5304bd9605babe6da9050ea4cb23c1671420b737
@@ -67,6 +70,6 @@ SPEC CHECKSUMS:
   Solar: ea092f7660c1b58d2b754227decb61a1c6710826
   Turf: 6c169618fa671e3f8a7b764b5b3332053ad6110e
 
-PODFILE CHECKSUM: 9f1889f38f82afe69b8ba41d07bffff3591df5aa
+PODFILE CHECKSUM: 8846e6630e0c5128aeefbc0682aaef11e0cb8756
 
 COCOAPODS: 1.4.0

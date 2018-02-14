@@ -4,6 +4,7 @@ import Mapbox
 import MapboxDirections
 import MapboxCoreNavigation
 import Turf
+import AudioToolbox
 
 class ArrowFillPolyline: MGLPolylineFeature {}
 class ArrowStrokePolyline: ArrowFillPolyline {}
@@ -144,6 +145,8 @@ class RouteMapViewController: UIViewController {
         guard let controller = routePageViewController.currentManeuverPage else { return }
         controller.step = currentStep
         routePageViewController.updateManeuverViewForStep()
+        
+        triggerHapticResponse()
     }
 
     @IBAction func toggleOverview(_ sender: Any) {
@@ -164,6 +167,8 @@ class RouteMapViewController: UIViewController {
         guard let controller = routePageViewController.currentManeuverPage else { return }
         controller.step = currentStep
         routePageViewController.updateManeuverViewForStep()
+        
+        triggerHapticResponse()
     }
     
     @IBAction func toggleMute(_ sender: UIButton) {
@@ -171,6 +176,8 @@ class RouteMapViewController: UIViewController {
         
         let muted = sender.isSelected
         NavigationSettings.shared.muted = muted
+        
+        triggerHapticResponse()
     }
     
     @IBAction func report(_ sender: Any) {
@@ -197,8 +204,14 @@ class RouteMapViewController: UIViewController {
         
         parent.present(controller, animated: true, completion: nil)
         delegate?.mapViewControllerDidOpenFeedback(self)
+        
+        triggerHapticResponse()
     }
 
+    func triggerHapticResponse() {
+        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier ?? "" {
         case "RoutePageViewController":

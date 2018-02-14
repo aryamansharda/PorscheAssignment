@@ -4,6 +4,7 @@ import MapboxDirections
 import Mapbox
 import Pulley
 import Solar
+import AudioToolbox
 
 @objc(MBNavigationPulleyViewController)
 public class NavigationPulleyViewController: PulleyViewController {}
@@ -624,8 +625,8 @@ extension NavigationViewController: RouteControllerDelegate {
 
 extension NavigationViewController: RouteTableViewHeaderViewDelegate {
     func didTapCancel() {
-        if navigationDelegate?.navigationViewControllerDidCancelNavigation?(self) != nil {
-            // The receiver should handle dismissal of the NavigationViewController
+        if navigationDelegate?.navigationViewControllerDidCancelNavigation?(self) != nil {        
+            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
         } else {
             dismiss(animated: true, completion: nil)
         }

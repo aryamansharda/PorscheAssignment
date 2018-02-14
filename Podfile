@@ -12,4 +12,5 @@ target 'Porsche' do
   pod 'LSFloatingActionMenu', '~> 1.0.0'
   pod 'PBJVision'
   pod 'LUNSegmentedControl'
+  pod 'Haptica'
 end
