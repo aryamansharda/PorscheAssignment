@@ -96,27 +96,6 @@
     }
 }
 
-#pragma mark - Search delegate methods
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc] init];
-    request.naturalLanguageQuery = searchText;
-    
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    
-    self.localSearch = [[MKLocalSearch alloc] initWithRequest:request];
-    [self.localSearch startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error){
-        
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-        
-        if (error != nil || [response.mapItems count] == 0) {
-            return;
-        }
-    
-        self.localSearchResults = response;
-        [self.searchDisplayController.searchResultsTableView reloadData];
-    }];
-}
-
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UITableViewCellEditingStyleNone;
 }
@@ -138,11 +117,30 @@
     return 85;
 }
 
+#pragma mark - Search delegate methods
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc] init];
+    request.naturalLanguageQuery = searchText;
+    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
+    self.localSearch = [[MKLocalSearch alloc] initWithRequest:request];
+    [self.localSearch startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error){
+        
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        
+        if (error != nil || [response.mapItems count] == 0) {
+            return;
+        }
+        
+        self.localSearchResults = response;
+        [self.searchDisplayController.searchResultsTableView reloadData];
+    }];
+}
+
 #pragma mark - View Controller Delegate
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"loadCustomRouteDirections"]) {
-        
-        //TODO: Combine this with the table view's data source
         NSMutableArray<MBWaypoint *> *allRouteWaypoints = [[NSMutableArray alloc] init];
         for (int x = 1; x < [self.waypointsList count]; x++) {
             Waypoint *waypoint = [self.waypointsList objectAtIndex:x];
