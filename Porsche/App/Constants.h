@@ -18,6 +18,8 @@
 #define DEFAULT_GRAY_ROUNDED_BUTTON_ANIMATION_TIME 1.5
 #define NAV_BAR_FONT_SIZE 21
 
+//CreateCustomRouteViewController
+#define STANDARD_WAYPOINTS_CELL_HEIGHT 85
 //ScenicDrivesViewController
 #define STANDARD_SCENIC_DRIVE_CELL_HEIGHT 188.0
 

@@ -18,8 +18,6 @@
 @property (nonatomic, weak) IBOutlet UIImageView *roadTripIconImageView;
 @property (nonatomic, weak) IBOutlet UIButton *startNavigationButton;
 @property (nonatomic, weak) IBOutlet UILabel *roadTripNameLabel;
-@property (nonatomic, weak) IBOutlet UILabel *roadTripExpectedTimeLabel;
-@property (nonatomic, weak) IBOutlet UILabel *roadTripLengthLabel;
 
 @property (nonatomic, weak) IBOutlet LUNSegmentedControl *montageSegmentedControl;
 @property (nonatomic, weak) IBOutlet LUNSegmentedControl *simulatedSegmentedControl;

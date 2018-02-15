@@ -13,6 +13,7 @@
 
 - (void)configureFromMKMapItem:(MKMapItem *)item
 {
+    //Assigns instance variables from Apple MKMapItem object
     self.addressTitle = [[item placemark] name];
     self.addressDetail = [[item placemark] title];
     self.coordinate = [[item placemark] coordinate];

@@ -23,6 +23,7 @@
 
 - (void)configureFromScenicDrives:(ScenicDrives *)scenicDrive
 {
+    //Assigns instance variables from ScenicDrives object
     self.driveName.text = scenicDrive.driveName;
     self.driveLengthHours.text = [scenicDrive.driveLengthHours uppercaseString];
     self.driveLengthMiles.text = [NSString stringWithFormat:@"%@ miles", scenicDrive.driveLengthMiles];

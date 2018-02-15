@@ -23,6 +23,7 @@
 
 - (void)configureFromWaypoint:(Waypoint *)waypoint
 {
+    //Assigns instance variables from Waypoint object
     self.addressDetailLabel.text = waypoint.addressDetail;
     self.addressLabel.text = waypoint.addressTitle;
 }

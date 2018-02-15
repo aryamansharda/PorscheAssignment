@@ -13,6 +13,7 @@
 
 - (void)configureFromParseObject:(PFObject *)object
 {
+    //Assigns instance variables from Parse object
     self.address = [object objectForKey:@"Address"];
     self.type = [object objectForKey:@"Type"];
     self.latitude = [object objectForKey:@"Latitude"];

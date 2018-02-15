@@ -19,6 +19,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    //Configures Parse Setup
     [Parse initializeWithConfiguration:[ParseClientConfiguration configurationWithBlock:^(id<ParseMutableClientConfiguration> _Nonnull configuration) {
         configuration.applicationId = @"PorscheScenicDriveParseAppID";
         configuration.clientKey = @"PorscheScenicDriveParseMasterKey";

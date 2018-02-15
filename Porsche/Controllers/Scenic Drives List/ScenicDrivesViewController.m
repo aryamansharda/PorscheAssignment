@@ -39,11 +39,11 @@
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.translucent = NO;
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"PorscheName"]];
-
     [self.navigationController.navigationBar setTitleTextAttributes:
                                                  @{NSForegroundColorAttributeName : [UIColor whiteColor],
                                                    NSFontAttributeName : [UIFont fontWithName:CUSTOM_FONT_REGULAR size:NAV_BAR_FONT_SIZE]}];
-
+    
+    //Update status bar to reflect styling changes
     [self setNeedsStatusBarAppearanceUpdate];
 }
 
@@ -55,11 +55,13 @@
 #pragma mark Parse API
 - (void)loadScenicDrives
 {
+    //Fetch all ScenicRoute objects async from Parse
     PFQuery *query = [PFQuery queryWithClassName:@"ScenicRoute"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             self.scenicDrivesList = [[NSMutableArray alloc] init];
 
+            //Convert PFObject to ScenicDrives objects
             for (PFObject *object in objects) {
                 ScenicDrives *scenicDriveObject = [[ScenicDrives alloc] init];
                 [scenicDriveObject configureFromParseObject:object sourceTableView:self.tableView];
@@ -83,6 +85,7 @@
 {
     static NSString *scenicDriveIdentifier = @"ScenicDrivesCell";
 
+    //Configure and populate cell with data from ScenicDrives object
     ScenicDrivesTableViewCell *cell = (ScenicDrivesTableViewCell *)[tableView dequeueReusableCellWithIdentifier:scenicDriveIdentifier];
     if (cell == nil) {
         cell = [[ScenicDrivesTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:scenicDriveIdentifier];
@@ -100,6 +103,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //Transition to MainMapViewController, if cell selected
     [self performSegueWithIdentifier:@"openMapViewSegue" sender:self];
 }
 
@@ -118,8 +122,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"openMapViewSegue"]) {
+        //Load MainMapViewController with destination specified by ScenicDrives object
         MainMapViewController *vc = [segue destinationViewController];
-
         ScenicDrives *selectedDrive = [self.scenicDrivesList objectAtIndex:self.tableView.indexPathForSelectedRow.row];
 
         MBWaypoint *destinationWaypoint = [[MBWaypoint alloc] initWithCoordinate:CLLocationCoordinate2DMake([selectedDrive.latitude doubleValue], [selectedDrive.longitude doubleValue]) coordinateAccuracy:-1 name:selectedDrive.driveName];
