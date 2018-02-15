@@ -8,9 +8,11 @@
 
 #import "ParkingGarages.h"
 
+
 @implementation ParkingGarages
 
--(void)configureFromParseObject:(PFObject *)object {
+- (void)configureFromParseObject:(PFObject *)object
+{
     self.address = [object objectForKey:@"Address"];
     self.type = [object objectForKey:@"Type"];
     self.latitude = [object objectForKey:@"Latitude"];

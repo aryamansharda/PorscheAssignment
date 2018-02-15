@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ScenicDrives.h"
 
+
 @interface ScenicDrivesTableViewCell : UITableViewCell
 
 @property (nonatomic, retain) IBOutlet UILabel *driveName;
@@ -16,6 +17,6 @@
 @property (nonatomic, retain) IBOutlet UILabel *driveLengthMiles;
 @property (nonatomic, retain) IBOutlet UIImageView *coverPhoto;
 
--(void)configureFromScenicDrives:(ScenicDrives *)scenicDrive;
+- (void)configureFromScenicDrives:(ScenicDrives *)scenicDrive;
 
 @end

@@ -8,17 +8,21 @@
 
 #import "ScenicDrivesTableViewCell.h"
 
+
 @implementation ScenicDrivesTableViewCell
 
-- (void)awakeFromNib {
+- (void)awakeFromNib
+{
     [super awakeFromNib];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
     [super setSelected:selected animated:animated];
 }
 
--(void)configureFromScenicDrives:(ScenicDrives *)scenicDrive {
+- (void)configureFromScenicDrives:(ScenicDrives *)scenicDrive
+{
     self.driveName.text = scenicDrive.driveName;
     self.driveLengthHours.text = [scenicDrive.driveLengthHours uppercaseString];
     self.driveLengthMiles.text = [NSString stringWithFormat:@"%@ miles", scenicDrive.driveLengthMiles];

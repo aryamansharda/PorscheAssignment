@@ -9,9 +9,11 @@
 #import "HySpinerLayer.h"
 #import <UIKit/UIKit.h>
 
+
 @implementation HySpinerLayer
 
--(instancetype)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame
+{
     self = [super init];
     if (self) {
         CGFloat radius = CGRectGetHeight(frame) / 4;
@@ -24,14 +26,15 @@
         self.fillColor = nil;
         self.strokeColor = [UIColor whiteColor].CGColor;
         self.lineWidth = 1;
-        
+
         self.strokeEnd = 0.4;
         self.hidden = true;
     }
     return self;
 }
 
--(void)beginAnimation {
+- (void)beginAnimation
+{
     self.hidden = false;
     CABasicAnimation *rotate = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
     rotate.fromValue = 0;
@@ -44,7 +47,8 @@
     [self addAnimation:rotate forKey:rotate.keyPath];
 }
 
--(void)stopAnimation {
+- (void)stopAnimation
+{
     self.hidden = true;
     [self removeAllAnimations];
 }

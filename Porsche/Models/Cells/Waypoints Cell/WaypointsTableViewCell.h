@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "Waypoint.h"
 
+
 @interface WaypointsTableViewCell : UITableViewCell
 
 @property (nonatomic, retain) IBOutlet UILabel *addressLabel;
 @property (nonatomic, retain) IBOutlet UILabel *addressDetailLabel;
 
--(void)configureFromWaypoint:(Waypoint *)waypoint;
+- (void)configureFromWaypoint:(Waypoint *)waypoint;
 
 
 @end

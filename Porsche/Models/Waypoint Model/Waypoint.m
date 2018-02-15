@@ -8,12 +8,14 @@
 
 #import "Waypoint.h"
 
+
 @implementation Waypoint
 
--(void)configureFromMKMapItem:(MKMapItem *)item {
+- (void)configureFromMKMapItem:(MKMapItem *)item
+{
     self.addressTitle = [[item placemark] name];
     self.addressDetail = [[item placemark] title];
-    self.coordinate =  [[item placemark] coordinate];
+    self.coordinate = [[item placemark] coordinate];
 }
 
 @end

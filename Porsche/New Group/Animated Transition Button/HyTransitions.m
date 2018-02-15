@@ -8,6 +8,7 @@
 
 #import "HyTransitions.h"
 
+
 @interface HyTransitions ()
 
 @property (nonatomic, assign) NSTimeInterval transitionDuration;
@@ -20,9 +21,11 @@
 
 @end
 
+
 @implementation HyTransitions
 
-- (instancetype)initWithTransitionDuration:(NSTimeInterval)transitionDuration StartingAlpha:(CGFloat)startingAlpha isPush:(BOOL)isPush {
+- (instancetype)initWithTransitionDuration:(NSTimeInterval)transitionDuration StartingAlpha:(CGFloat)startingAlpha isPush:(BOOL)isPush
+{
     self = [super init];
     if (self) {
         _transitionDuration = transitionDuration;
@@ -33,22 +36,23 @@
 }
 
 #pragma mark - UIViewControllerAnimatedTransitioning
-- (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext {
-
+- (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
+{
     return _transitionDuration;
 }
 
-- (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext{
+- (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
+{
     UIView *containerView = [transitionContext containerView];
     UIView *toView = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey].view;
     UIView *fromView = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey].view;
-    
+
     if (_isPush) {
         toView.alpha = _startingAlpha;
         fromView.alpha = 1.0f;
-        
+
         [containerView addSubview:toView];
-        
+
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
             toView.alpha = 1.0f;
             fromView.alpha = 0.0f;

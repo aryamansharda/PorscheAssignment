@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^HyAnimationCompletion)();
+typedef void (^HyAnimationCompletion)(void);
+
 
 @interface HyLoginButton : UIButton
 
--(void)failedAnimationWithCompletion:(HyAnimationCompletion)completion;
+- (void)failedAnimationWithCompletion:(HyAnimationCompletion)completion;
 
--(void)succeedAnimationWithCompletion:(HyAnimationCompletion)completion;
+- (void)succeedAnimationWithCompletion:(HyAnimationCompletion)completion;
 
 @end

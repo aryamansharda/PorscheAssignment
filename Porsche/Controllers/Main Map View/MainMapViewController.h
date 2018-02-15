@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "PBJVision.h"
 
+
 @interface MainMapViewController : UIViewController <MGLMapViewDelegate>
 
 @property (nonatomic) IBOutlet UIView *mapViewContainer;
@@ -16,5 +17,5 @@
 
 @property (nonatomic) MBWaypoint *destinationWaypoint;
 @property (nonatomic) MBRoute *directionsRoute;
-@property (nonatomic) NSMutableArray *allRouteWaypoints; 
+@property (nonatomic) NSMutableArray *allRouteWaypoints;
 @end

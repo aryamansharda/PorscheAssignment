@@ -8,9 +8,11 @@
 
 #import "ScenicDrives.h"
 
+
 @implementation ScenicDrives
 
--(void)configureFromParseObject:(PFObject *)object sourceTableView:(UITableView *)tableView {
+- (void)configureFromParseObject:(PFObject *)object sourceTableView:(UITableView *)tableView
+{
     self.driveName = [object objectForKey:@"driveName"];
     self.driveLengthHours = [object objectForKey:@"driveLengthHours"];
     self.driveLengthMiles = [object objectForKey:@"driveLengthMiles"];

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
 
+
 @interface ScenicDrives : NSObject
 
 @property (nonatomic, retain) NSString *driveName;
@@ -16,11 +17,11 @@
 @property (nonatomic, retain) NSString *driveLengthMiles;
 
 @property (nonatomic) NSNumber *latitude;
-@property (nonatomic) NSNumber *longitude; 
+@property (nonatomic) NSNumber *longitude;
 
 @property (nonatomic, retain) PFFile *coverPhotoReference;
 @property (nonatomic, retain) UIImage *coverPhotoImage;
 
--(void)configureFromParseObject:(PFObject *)object sourceTableView:(UITableView *)tableView;
+- (void)configureFromParseObject:(PFObject *)object sourceTableView:(UITableView *)tableView;
 
 @end

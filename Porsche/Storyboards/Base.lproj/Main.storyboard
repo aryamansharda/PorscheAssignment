@@ -109,7 +109,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="LABEL" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="20" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FwV-tJ-iY1">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="LABEL" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="20" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FwV-tJ-iY1">
                                                     <rect key="frame" x="15" y="102" width="345" height="51"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="31"/>
@@ -277,9 +277,12 @@
                                     <action selector="launchMapController" destination="ixw-Dx-Tzl" eventType="touchUpInside" id="nk7-F3-WdA"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lkl-GX-jki" customClass="LUNSegmentedControl">
-                                <rect key="frame" x="38" y="359" width="298" height="50"/>
+                            <view contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="Lkl-GX-jki" customClass="LUNSegmentedControl">
+                                <rect key="frame" x="38" y="360.5" width="298" height="50"/>
                                 <color key="backgroundColor" red="0.31764705879999999" green="0.31764705879999999" blue="0.31764705879999999" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="qQ8-JS-OOK"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="textColor">
                                         <color key="value" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -299,7 +302,7 @@
                                     <outlet property="delegate" destination="ixw-Dx-Tzl" id="6bH-R9-cqd"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SIMULATION" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUm-BS-POj">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="SIMULATION" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUm-BS-POj">
                                 <rect key="frame" x="34" y="433" width="105" height="20"/>
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -308,6 +311,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="voj-hq-73e" customClass="LUNSegmentedControl">
                                 <rect key="frame" x="38" y="461" width="298" height="50"/>
                                 <color key="backgroundColor" red="0.31764705879999999" green="0.31764705879999999" blue="0.31764705879999999" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ou0-To-ROr"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="textColor">
                                         <color key="value" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -328,7 +334,7 @@
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIMELAPSE " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUx-64-tSx">
-                                <rect key="frame" x="38" y="331" width="95.5" height="20"/>
+                                <rect key="frame" x="38" y="331" width="298" height="20.5"/>
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -336,16 +342,17 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Lkl-GX-jki" firstAttribute="centerX" secondItem="jAs-SW-fYr" secondAttribute="centerX" id="1jh-2U-8EB"/>
                             <constraint firstItem="jAs-SW-fYr" firstAttribute="top" secondItem="SS4-lC-hZE" secondAttribute="top" constant="12" id="7FR-n2-i7s"/>
                             <constraint firstItem="70P-Gj-qCK" firstAttribute="centerX" secondItem="QtE-nj-VwD" secondAttribute="centerX" id="8SF-Ys-MDC"/>
                             <constraint firstItem="Gqt-GE-VLf" firstAttribute="centerX" secondItem="QtE-nj-VwD" secondAttribute="centerX" id="Bsc-Wj-D8S"/>
                             <constraint firstItem="70P-Gj-qCK" firstAttribute="top" secondItem="jAs-SW-fYr" secondAttribute="bottom" constant="8" id="E3J-iv-SSW"/>
                             <constraint firstItem="GUx-64-tSx" firstAttribute="leading" secondItem="SS4-lC-hZE" secondAttribute="leading" constant="38" id="FGI-Me-KZA"/>
                             <constraint firstItem="70P-Gj-qCK" firstAttribute="leading" secondItem="SS4-lC-hZE" secondAttribute="leading" constant="125" id="HHd-go-Kwl"/>
+                            <constraint firstItem="Lkl-GX-jki" firstAttribute="trailing" secondItem="GUx-64-tSx" secondAttribute="trailing" id="HT3-To-Hxt"/>
                             <constraint firstItem="70P-Gj-qCK" firstAttribute="centerX" secondItem="jAs-SW-fYr" secondAttribute="centerX" id="HpQ-aV-9kj"/>
                             <constraint firstItem="voj-hq-73e" firstAttribute="centerX" secondItem="jAs-SW-fYr" secondAttribute="centerX" id="I3A-Ts-Ti3"/>
                             <constraint firstItem="voj-hq-73e" firstAttribute="height" secondItem="Lkl-GX-jki" secondAttribute="height" id="JF0-gG-EpD"/>
+                            <constraint firstItem="Lkl-GX-jki" firstAttribute="top" secondItem="GUx-64-tSx" secondAttribute="bottom" constant="9" id="Mvh-yN-5aZ"/>
                             <constraint firstItem="voj-hq-73e" firstAttribute="top" secondItem="FUm-BS-POj" secondAttribute="bottom" constant="8" id="Nk1-g4-9Pi"/>
                             <constraint firstItem="avc-uo-oV6" firstAttribute="top" secondItem="70P-Gj-qCK" secondAttribute="bottom" constant="38" id="OkC-av-aXo"/>
                             <constraint firstItem="voj-hq-73e" firstAttribute="centerX" secondItem="QtE-nj-VwD" secondAttribute="centerX" id="Qx8-Qm-jBu"/>
@@ -354,8 +361,6 @@
                             <constraint firstItem="Lkl-GX-jki" firstAttribute="leading" secondItem="GUx-64-tSx" secondAttribute="leading" id="V47-Ee-UeR"/>
                             <constraint firstItem="SS4-lC-hZE" firstAttribute="bottom" secondItem="Gqt-GE-VLf" secondAttribute="bottom" constant="75" id="ZRO-wb-SIT"/>
                             <constraint firstItem="Lkl-GX-jki" firstAttribute="centerX" secondItem="QtE-nj-VwD" secondAttribute="centerX" id="b3Q-V2-rwr"/>
-                            <constraint firstItem="FUm-BS-POj" firstAttribute="top" secondItem="Lkl-GX-jki" secondAttribute="bottom" constant="24" id="cJv-u6-gpz"/>
-                            <constraint firstItem="Lkl-GX-jki" firstAttribute="top" secondItem="GUx-64-tSx" secondAttribute="bottom" constant="8" id="cVc-ZH-vc9"/>
                             <constraint firstItem="jAs-SW-fYr" firstAttribute="centerX" secondItem="QtE-nj-VwD" secondAttribute="centerX" id="e4A-aZ-Mfv"/>
                             <constraint firstItem="SS4-lC-hZE" firstAttribute="trailing" secondItem="FUm-BS-POj" secondAttribute="trailing" priority="250" constant="236" id="fDi-pW-j9O"/>
                             <constraint firstItem="GUx-64-tSx" firstAttribute="top" secondItem="avc-uo-oV6" secondAttribute="bottom" constant="34" id="qFu-Om-Z1S"/>

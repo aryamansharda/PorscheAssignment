@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "HyLoginButton.h"
 
+
 @interface SplashScreenViewController : UIViewController <UIViewControllerTransitioningDelegate>
 
 @property (nonatomic, retain) IBOutlet UIWebView *videoBackgroundView;

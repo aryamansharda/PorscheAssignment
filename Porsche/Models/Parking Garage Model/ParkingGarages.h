@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface ParkingGarages : NSObject
 
 @property (nonatomic, retain) NSString *address;
@@ -15,6 +16,6 @@
 @property (nonatomic, retain) NSNumber *latitude;
 @property (nonatomic, retain) NSNumber *longitude;
 
--(void)configureFromParseObject:(PFObject *)object;
+- (void)configureFromParseObject:(PFObject *)object;
 
 @end

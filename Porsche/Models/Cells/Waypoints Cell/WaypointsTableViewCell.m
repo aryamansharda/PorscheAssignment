@@ -8,17 +8,21 @@
 
 #import "WaypointsTableViewCell.h"
 
+
 @implementation WaypointsTableViewCell
 
-- (void)awakeFromNib {
+- (void)awakeFromNib
+{
     [super awakeFromNib];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
     [super setSelected:selected animated:animated];
 }
 
--(void)configureFromWaypoint:(Waypoint *)waypoint {
+- (void)configureFromWaypoint:(Waypoint *)waypoint
+{
     self.addressDetailLabel.text = waypoint.addressDetail;
     self.addressLabel.text = waypoint.addressTitle;
 }
